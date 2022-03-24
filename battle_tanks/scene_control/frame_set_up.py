@@ -1,0 +1,1 @@
+# same as the scene manager in the batter game
