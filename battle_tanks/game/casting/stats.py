@@ -12,10 +12,10 @@ class Stats(Actor):
         self._lives = DEFAULT_LIVES
         self._score = 0
 
-    def add_life(self):
-        """Adds one life."""
-        if self._lives < MAXIMUM_LIVES:
-            self._lives += 1 
+    # def add_life(self):   ### Not needed
+    #     """Adds one life."""
+    #     if self._lives < MAXIMUM_LIVES:
+    #         self._lives += 1 
 
     def add_points(self, points):
         """Adds the given points to the score.

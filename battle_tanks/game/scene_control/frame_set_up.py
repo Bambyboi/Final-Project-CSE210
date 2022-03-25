@@ -8,7 +8,7 @@ from game.casting.image import Image # Same
 from game.casting.label import Label # Same
 from game.casting.point import Point # Same
 from game.casting.tank import Tank # Changed ALL INSTANCES of RACKET to TANK
-from game.casting.stats import Stats # Same
+from game.casting.stats import Stats # Same, though it needs new methods for score
 from game.casting.text import Text # Same
 from game.scripting.change_scene_action import ChangeSceneAction
 from game.scripting.check_over_action import CheckOverAction

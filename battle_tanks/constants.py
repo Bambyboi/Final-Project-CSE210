@@ -86,6 +86,7 @@ RELEASE = 6
 
 # STATS
 STATS_GROUP = "stats"
+DEFAULT_LIVES = 5
 P1_LIVES = 5
 P2_LIVES = 5
 
@@ -117,7 +118,7 @@ TANKS_HEIGHT = 100
 TANKS_RATE = 6
 TANKS_VELOCITY = 7
 
-# WALLS
+# WALLS   ###Are these the bricks?
 WALLS_GROUP = "WALLS"
 WALL_IMAGES = {
     "wall_1": "game/assets/images/wall_1.png",
