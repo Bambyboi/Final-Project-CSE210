@@ -1,5 +1,5 @@
 import pathlib
-from game.cast.color import Color
+from game.casting.color import Color
 
 # -------------------------------------------------------------------------------------------------- 
 # GENERAL GAME CONSTANTS
