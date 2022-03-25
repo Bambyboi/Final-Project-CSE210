@@ -58,3 +58,23 @@ Priorities:
 1.	The game itself, so scene 3, 
 2.	Then the title, controls, and winner screens, so scenes 1, 2, and 4.
 3.	Lastly, the help buttons in the game as part of scene 3 again
+
+
+
+
+
+
+
+
+
+
+
+
+Notes: To-do list
+
+
+Gunnar: Currently looking into how to get the racket.py to control the tanks. 
+    - will likely need to apply an angle to the rectangle depending on how long the arrow is held.
+    - will need a constant telling how much to rotate per frame (ROTATION_SPEED)
+    - will need to use the balls formula for traveling in any angled direction to help with the forward/backward momentum after/with rotation
+    - also, no idea why the tank image does not show up when called instead of the racket's image...

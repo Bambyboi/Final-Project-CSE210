@@ -1,8 +1,8 @@
 from settings import *
-from game.cast.cast import Cast
+from game.casting.cast import Cast
 from game.scene_control.frame_set_up import FrameSetUp
-from game.script.action_callback import ActionCallback
-from game.script.script import Script
+from game.scripting.action_callback import ActionCallback
+from game.scripting.script import Script
 
 
 class Director(ActionCallback):

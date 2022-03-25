@@ -1,4 +1,4 @@
-"from game.cast.text import Text"
+from battle_tanks.game.casting.text import Text
 
 
 class Actor:
