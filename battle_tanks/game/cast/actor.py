@@ -1,4 +1,4 @@
-from game.cast.text import Text
+"from game.cast.text import Text"
 
 
 class Actor:
