@@ -6,7 +6,7 @@ from game.cast.color import Color
 # -------------------------------------------------------------------------------------------------- 
 
 # GAME
-GAME_NAME = "Batter"
+GAME_NAME = "Battle Tanks"
 FRAME_RATE = 60
 
 # SCREEN
