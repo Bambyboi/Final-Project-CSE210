@@ -1,1 +1,0 @@
-This is the folder where we will store all of our images, sounds, and other elements we will need to call and display, read, or show later in the game.
