@@ -9,7 +9,7 @@ class MoveTankAction(Action):
         pass
 
     def execute(self, cast, script, callback):
-        tank = cast.get_first_actor(TANK_GROUP)
+        tank = cast.get_first_actor(TANKS_GROUP)
         body = tank.get_body()
         velocity = body.get_velocity()
         position = body.get_position()

@@ -118,6 +118,12 @@ P2_TANK = "p2_tank"
 P2_TANK_IMAGE = "game/assets/images/tank_red.jpeg"
 
 # BOTH TANKS
+TANKS_GROUP = "tanks"
+TANKS_IMAGES = {
+    "wall_1": "game/assets/images/wall_1.png",
+    "wall_2": "game/assets/images/wall_2.png",
+    "wall_3": "game/assets/images/wall_3.png"
+}
 TANK_WIDTH = 100
 TANK_HEIGHT = 100
 TANK_RATE = 6

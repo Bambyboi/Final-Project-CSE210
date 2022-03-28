@@ -8,7 +8,7 @@ class DrawTankAction(Action):
         self._video_service = video_service
         
     def execute(self, cast, script, callback):
-        tank = cast.get_first_actor(TANK_GROUP)
+        tank = cast.get_first_actor(TANKS_GROUP)
         body = tank.get_body()
 
         if tank.is_debug():

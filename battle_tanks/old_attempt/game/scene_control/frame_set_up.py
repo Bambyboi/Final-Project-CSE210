@@ -87,6 +87,15 @@ class FrameSetUp:
     
     def _prepare_start_menu(self, cast, script):
         self._start_menu_background = START_MENU_IMAGE
+
+        self._add_initialize_script(script)
+        self._add_load_script(script)
+        script.clear_actions(INPUT)
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        self._add_output_script(script)
+        self._add_unload_script(script)
+        self._add_release_script(script)
+
     
     def _prepare_new_game(self, cast, script):
         self._add_stats(cast)
