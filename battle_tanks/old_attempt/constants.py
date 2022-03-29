@@ -156,6 +156,7 @@ BRICK_LIVES = 10
 
 # DIALOG
 DIALOG_GROUP = "dialogs"
-ENTER_TO_START = "PRESS ENTER TO START"
-# PREP_TO_LAUNCH = "PREPARING TO LAUNCH" # Removed
-# WINNER = f"{winner} Wins!" # We will worry about this later if there is time
+ENTER_TO_CONTROLS = "PRESS ENTER"
+ENTER_TO_START = "PRESS ENTER AGAIN TO BEGIN"
+LOADING_NEW_MAP = "LOADING NEW MAP"
+WINNER = "{winner} Wins!" # We will worry about this later if there is time

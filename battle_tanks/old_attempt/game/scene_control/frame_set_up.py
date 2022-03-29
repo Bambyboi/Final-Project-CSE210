@@ -78,7 +78,7 @@ class FrameSetUp:
         elif scene == WINNER:    
             self._prepare_game_over(cast, script)
         elif scene == PLAY_AGAIN:
-            self._prepare_try_again(cast, script)
+            self._prepare_play_again(cast, script)
     
     # ----------------------------------------------------------------------------------------------
     # scene methods
@@ -92,13 +92,13 @@ class FrameSetUp:
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
-        self._add_dialog(cast, ENTER_TO_START)
+        self._add_dialog(cast, ENTER_TO_CONTROLS)
 
 
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
-        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, CONTROLS))
         self._add_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
@@ -106,71 +106,73 @@ class FrameSetUp:
     
     def _prepare_controls(self, cast, script):
         self._start_menu_background = CONTROLS_IMAGE
-
-        self._add_initialize_script(script)
-        self._add_load_script(script)
-        script.clear_actions(INPUT)
-        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
-        self._add_output_script(script)
-        self._add_unload_script(script)
-        self._add_release_script(script)
-
-    
-    def _prepare_new_game(self, cast, script):
-        self._add_stats(cast)
-        self._add_level(cast)
-        self._add_lives(cast)
-        self._add_score(cast)
-        self._add_bullets(cast)
-        self._add_bricks(cast)
-        self._add_tank(cast)
         self._add_dialog(cast, ENTER_TO_START)
 
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
-        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, START_PLAYING))
         self._add_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
+
+    
+    # def _prepare_new_game(self, cast, script):
+    #     self._add_stats(cast)
+    #     self._add_level(cast)
+    #     self._add_lives(cast)
+    #     self._add_score(cast)
+    #     self._add_bullets(cast)
+    #     self._add_bricks(cast)
+    #     self._add_tank(cast)
+    #     self._add_dialog(cast, ENTER_TO_START)
+
+    #     self._add_initialize_script(script)
+    #     self._add_load_script(script)
+    #     script.clear_actions(INPUT)
+    #     script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+    #     self._add_output_script(script)
+    #     self._add_unload_script(script)
+    #     self._add_release_script(script)
         
     def _prepare_next_round(self, cast, script):
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
-        self._add_dialog(cast, PREP_TO_LAUNCH)
+        self._add_dialog(cast, LOADING_NEW_MAP)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, TimedChangeSceneAction(IN_PLAY, 2))
+        script.add_action(INPUT, TimedChangeSceneAction(NEXT_ROUND, 2))
         self._add_output_script(script)
         script.add_action(OUTPUT, PlaySoundAction(self.AUDIO_SERVICE, WELCOME_SOUND))
         
-    def _prepare_try_again(self, cast, script):
+    def _prepare_play_again(self, cast, script):
         self._add_bullet(cast)
         self._add_tank(cast)
-        self._add_dialog(cast, PREP_TO_LAUNCH)
+        self._add_dialog(cast, LOADING_NEW_MAP)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, TimedChangeSceneAction(IN_PLAY, 2))
+        script.add_action(INPUT, TimedChangeSceneAction(PLAY_AGAIN, 2))
         self._add_update_script(script)
         self._add_output_script(script)
 
-    def _prepare_in_play(self, cast, script):
-        self._activate_bullet(cast)
-        cast.clear_actors(DIALOG_GROUP)
+    # def _prepare_in_play(self, cast, script):
+    #     self._activate_bullet(cast)
+    #     cast.clear_actors(DIALOG_GROUP)
 
-        script.clear_actions(INPUT)
-        script.add_action(INPUT, self.CONTROL_TANK_ACTION)
-        self._add_update_script(script)
-        self._add_output_script(script)
+    #     script.clear_actions(INPUT)
+    #     script.add_action(INPUT, self.CONTROL_TANK_ACTION)
+    #     self._add_update_script(script)
+    #     self._add_output_script(script)
 
     def _prepare_game_over(self, cast, script):
-        self._add_bullet(cast)
+        
+        self._add_bullets(cast)
         self._add_tank(cast)
-        self._add_dialog(cast, WAS_GOOD_GAME)
+        self._add_dialog(cast, WINNER)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, TimedChangeSceneAction(NEW_GAME, 5))
+        script.add_action(INPUT, TimedChangeSceneAction(START_MENU, 5))
         script.clear_actions(UPDATE)
         self._add_output_script(script)
 
