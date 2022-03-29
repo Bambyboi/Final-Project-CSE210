@@ -138,6 +138,7 @@ class FrameSetUp:
     #     self._add_release_script(script)
 
     def _prepare_start_playing(self, cast, script):
+        # self._add_background(cast)
         """puts in two tanks contolled by two players
         background
         """
@@ -189,6 +190,10 @@ class FrameSetUp:
     # casting methods
     # ----------------------------------------------------------------------------------------------
     
+    def _add_background(self, cast):
+        """not sure what is needed here yet, will add backgorund to its own cast list"""
+        pass
+
     def _activate_bullet(self, cast):
         bullet = cast.get_first_actor(BULLET_GROUP)
         bullet.release()
