@@ -87,6 +87,25 @@ class FrameSetUp:
     
     def _prepare_start_menu(self, cast, script):
         self._start_menu_background = START_MENU_IMAGE
+        self._add_stats(cast)
+        self._add_score(cast)
+        self._add_bullets(cast)
+        self._add_bricks(cast)
+        self._add_tank(cast)
+        self._add_dialog(cast, ENTER_TO_START)
+
+
+        self._add_initialize_script(script)
+        self._add_load_script(script)
+        script.clear_actions(INPUT)
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        self._add_output_script(script)
+        self._add_unload_script(script)
+        self._add_release_script(script)
+
+    
+    def _prepare_controls(self, cast, script):
+        self._start_menu_background = CONTROLS_IMAGE
 
         self._add_initialize_script(script)
         self._add_load_script(script)
@@ -177,36 +196,37 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
+        print("added bricks") # edit to add walls of bricks in randomly but not on top of tank
         
-        stats = cast.get_first_actor(STATS_GROUP)
-        level = stats.get_level() % BASE_LEVELS
-        filename = LEVEL_FILE.format(level)
+        # stats = cast.get_first_actor(STATS_GROUP)
+        # level = stats.get_level() % BASE_LEVELS
+        # filename = LEVEL_FILE.format(level)
 
-        with open(filename, 'r') as file:
-            reader = csv.reader(file, skipinitialspace=True)
+        # with open(filename, 'r') as file:
+        #     reader = csv.reader(file, skipinitialspace=True)
 
-            for r, row in enumerate(reader):
-                for c, column in enumerate(row):
+        #     for r, row in enumerate(reader):
+        #         for c, column in enumerate(row):
 
-                    x = FIELD_LEFT + c * BRICK_WIDTH
-                    y = FIELD_TOP + r * BRICK_HEIGHT
-                    color = column[0]
-                    frames = int(column[1])
-                    points = BRICK_POINTS 
+        #             x = FIELD_LEFT + c * BRICK_WIDTH
+        #             y = FIELD_TOP + r * BRICK_HEIGHT
+        #             color = column[0]
+        #             frames = int(column[1])
+        #             points = BRICK_POINTS 
                     
-                    if frames == 1:
-                        points *= 2
+        #             if frames == 1:
+        #                 points *= 2
                     
-                    position = Point(x, y)
-                    size = Point(BRICK_WIDTH, BRICK_HEIGHT)
-                    velocity = Point(0, 0)
-                    images = BRICK_IMAGES[color][0:frames]
+        #             position = Point(x, y)
+        #             size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+        #             velocity = Point(0, 0)
+        #             images = BRICK_IMAGES[color][0:frames]
 
-                    body = Body(position, size, velocity)
-                    animation = Animation(images, BRICK_RATE, BRICK_DELAY)
+        #             body = Body(position, size, velocity)
+        #             animation = Animation(images, BRICK_RATE, BRICK_DELAY)
 
-                    brick = Brick(body, animation, points)
-                    cast.add_actor(BRICK_GROUP, brick)
+        #             brick = Brick(body, animation, points)
+        #             cast.add_actor(BRICK_GROUP, brick)
 
     def _add_dialog(self, cast, message):
         cast.clear_actors(DIALOG_GROUP)
@@ -242,16 +262,16 @@ class FrameSetUp:
         cast.add_actor(STATS_GROUP, stats)
 
     def _add_tank(self, cast):
-        cast.clear_actors(TANK_GROUP)
+        cast.clear_actors(TANKS_GROUP)
         x = CENTER_X - TANK_WIDTH / 2
         y = SCREEN_HEIGHT - TANK_HEIGHT
         position = Point(x, y)
         size = Point(TANK_WIDTH, TANK_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
-        animation = Animation(TANK_IMAGES, TANK_RATE)
+        animation = Animation(TANKS_IMAGES, TANK_RATE)
         tank = Tank(body, animation)
-        cast.add_actor(TANK_GROUP, tank)
+        cast.add_actor(TANKS_GROUP, tank)
 
     # ----------------------------------------------------------------------------------------------
     # scripting methods

@@ -1,5 +1,6 @@
 from constants import *
 from game.scripting.action import Action
+from game.casting.image import Image
 
 
 class DrawTankAction(Action):
@@ -15,7 +16,8 @@ class DrawTankAction(Action):
             rectangle = body.get_rectangle()
             self._video_service.draw_rectangle(rectangle, PURPLE)
             
-        animation = tank.get_animation()
-        image = animation.next_image()
+        # animation = tank.get_animation()
+        # image = animation.next_image()
+        image = Image(TANKS_IMAGES["player_1"])
         position = body.get_position()
         self._video_service.draw_image(image, position)

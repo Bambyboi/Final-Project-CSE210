@@ -22,7 +22,7 @@ FIELD_LEFT = 0
 FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
-FONT_FILE = "game/assets/fonts/zorque.otf"
+FONT_FILE = "battle_tanks/old_attempt/game/assets/fonts/zorque.otf"
 FONT_SMALL = 10
 FONT_LARGE = 25
 
@@ -70,6 +70,7 @@ PLAY_AGAIN = 5
 # VISUALS
 
 START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.jpeg"
+CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.jpeg"
 
 
 # -------------------------------------------------------------------------------------------------- 
@@ -104,25 +105,26 @@ SCORE_FORMAT = "SCORE: {}"
 
 # BULLET
 BULLET_GROUP = "bullet"
-BULLET_IMAGE = "game/assets/images/bullet.png"
+BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.jpeg"
 BULLET_WIDTH = 28
 BULLET_HEIGHT = 28
 BULLET_VELOCITY = 6
 
 # PLAYER 1 
 P1_TANK = "p1_tank"
-p1_TANK_IMAGE = "game/assets/images/tank_blue.jpeg"
+p1_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_blue.jpeg"
 
 # PLAYER 2
 P2_TANK = "p2_tank"
-P2_TANK_IMAGE = "game/assets/images/tank_red.jpeg"
+P2_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_red.jpeg"
 
 # BOTH TANKS
 TANKS_GROUP = "tanks"
 TANKS_IMAGES = {
-    "wall_1": "game/assets/images/wall_1.png",
-    "wall_2": "game/assets/images/wall_2.png",
-    "wall_3": "game/assets/images/wall_3.png"
+    "player_1": "battle_tanks/old_attempt/game/assets/images/tank_red.jpeg",
+    "player_2": "battle_tanks/old_attempt/game/assets/images/tank_blue.jpeg",
+    "player_3": "battle_tanks/old_attempt/game/assets/images/tank_yellow.jpeg",
+    "player_4": "battle_tanks/old_attempt/game/assets/images/tank_green.jpeg"
 }
 TANK_WIDTH = 100
 TANK_HEIGHT = 100

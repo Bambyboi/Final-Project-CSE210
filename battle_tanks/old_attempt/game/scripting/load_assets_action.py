@@ -9,7 +9,7 @@ class LoadAssetsAction(Action):
         self._video_service = video_service
 
     def execute(self, cast, script, callback):
-        self._audio_service.load_sounds("batter/assets/sounds")
-        self._video_service.load_fonts("batter/assets/fonts")
-        self._video_service.load_images("batter/assets/images")
+        self._audio_service.load_sounds("battle_tanks/old_attempt/game/assets/sounds")
+        self._video_service.load_fonts("battle_tanks/old_attempt/game/assets/fonts")
+        self._video_service.load_images("battle_tanks/old_attempt/game/assets/images")
         

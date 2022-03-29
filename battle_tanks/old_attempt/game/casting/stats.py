@@ -25,21 +25,21 @@ class Stats(Actor):
         """
         self._score += points
 
-    def get_level(self):
-        """Gets the level.
+    # def get_level(self): # could be implemented as get_round(self) later, lower priority
+    #     """Gets the level.
 
-        Returns:
-            A number representing the level.
-        """
-        return self._level
+    #     Returns:
+    #         A number representing the level.
+    #     """
+    #     return self._level
 
-    def get_lives(self):
-        """Gets the lives.
+    # def get_lives(self):
+    #     """Gets the lives.
 
-        Returns:
-            A number representing the lives.
-        """
-        return self._lives
+    #     Returns:
+    #         A number representing the lives.
+    #     """
+    #     return self._lives
   
     def get_score(self):
         """Gets the score.
@@ -49,17 +49,17 @@ class Stats(Actor):
         """
         return self._score
 
-    def lose_life(self):
-        """Removes one life."""
-        if self._lives > 0:
-            self._lives -= 1
+    # def lose_life(self):
+    #     """Removes one life."""
+    #     if self._lives > 0:
+    #         self._lives -= 1
     
-    def next_level(self):
-        """Adds one level."""
-        self._level += 1
+    # def next_level(self):
+    #     """Adds one level."""
+    #     self._level += 1
 
     def reset(self):
         """Resets the stats back to their default values."""
-        self._level = 1
-        self._lives = DEFAULT_LIVES
+        # self._level = 1
+        # self._lives = DEFAULT_LIVES
         self._score = 0
