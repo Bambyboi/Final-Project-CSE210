@@ -86,7 +86,8 @@ class FrameSetUp:
     
     
     def _prepare_start_menu(self, cast, script):
-        self._start_menu_background = START_MENU_IMAGE
+        self._start_menu_background = START_MENU_IMAGE #I don't think we need this.. just the next part, but it needs set up
+        # self._add_background(cast)
         self._add_stats(cast)
         self._add_score(cast)
         self._add_bullets(cast)
@@ -106,6 +107,8 @@ class FrameSetUp:
     
     def _prepare_controls(self, cast, script):
         self._start_menu_background = CONTROLS_IMAGE
+        # do we need to clear the old background first?
+        # self._add_background(cast)
         self._add_dialog(cast, ENTER_TO_START)
 
         self._add_initialize_script(script)
@@ -135,6 +138,10 @@ class FrameSetUp:
     #     self._add_release_script(script)
 
     def _prepare_start_playing(self, cast, script):
+        """puts in two tanks contolled by two players
+        background
+        """
+        
         pass
         
     def _prepare_next_round(self, cast, script):
