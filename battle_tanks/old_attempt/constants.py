@@ -23,8 +23,8 @@ FIELD_RIGHT = SCREEN_WIDTH
 
 # FONT
 FONT_FILE = "battle_tanks/old_attempt/game/assets/fonts/zorque.otf"
-FONT_SMALL = 10
-FONT_LARGE = 25
+FONT_SMALL = 32
+FONT_LARGE = 48
 
 # SOUND
 BOUNCE_SOUND = "game/assets/sounds/sound1.wav"
@@ -69,8 +69,8 @@ PLAY_AGAIN = 5
 
 # VISUALS
 
-START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.jpeg"
-CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.jpeg"
+START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.png"
+CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.png"
 
 
 # -------------------------------------------------------------------------------------------------- 
@@ -105,26 +105,26 @@ SCORE_FORMAT = "SCORE: {}"
 
 # BULLET
 BULLET_GROUP = "bullet"
-BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.jpeg"
+BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.png"
 BULLET_WIDTH = 28
 BULLET_HEIGHT = 28
 BULLET_VELOCITY = 6
 
 # PLAYER 1 
 P1_TANK = "p1_tank"
-p1_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_blue.jpeg"
+p1_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_blue.png"
 
 # PLAYER 2
 P2_TANK = "p2_tank"
-P2_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_red.jpeg"
+P2_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_red.png"
 
 # BOTH TANKS
 TANKS_GROUP = "tanks"
 TANKS_IMAGES = {
-    "player_1": "battle_tanks/old_attempt/game/assets/images/tank_red.jpeg",
-    "player_2": "battle_tanks/old_attempt/game/assets/images/tank_blue.jpeg",
-    "player_3": "battle_tanks/old_attempt/game/assets/images/tank_yellow.jpeg",
-    "player_4": "battle_tanks/old_attempt/game/assets/images/tank_green.jpeg"
+    "player_1": "battle_tanks/old_attempt/game/assets/images/tank_red.png",
+    "player_2": "battle_tanks/old_attempt/game/assets/images/tank_blue.png",
+    "player_3": "battle_tanks/old_attempt/game/assets/images/tank_yellow.png",
+    "player_4": "battle_tanks/old_attempt/game/assets/images/tank_green.png"
 }
 TANK_WIDTH = 100
 TANK_HEIGHT = 100

@@ -115,7 +115,6 @@ class FrameSetUp:
         self._add_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
-
     
     # def _prepare_new_game(self, cast, script):
     #     self._add_stats(cast)
@@ -134,6 +133,9 @@ class FrameSetUp:
     #     self._add_output_script(script)
     #     self._add_unload_script(script)
     #     self._add_release_script(script)
+
+    def _prepare_start_playing(self, cast, script):
+        pass
         
     def _prepare_next_round(self, cast, script):
         self._add_bullets(cast)
@@ -237,19 +239,19 @@ class FrameSetUp:
         label = Label(text, position)
         cast.add_actor(DIALOG_GROUP, label)
 
-    def _add_level(self, cast):
-        cast.clear_actors(LEVEL_GROUP)
-        text = Text(LEVEL_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_LEFT)
-        position = Point(HUD_MARGIN, HUD_MARGIN)
-        label = Label(text, position)
-        cast.add_actor(LEVEL_GROUP, label)
+    # def _add_level(self, cast):
+    #     cast.clear_actors(LEVEL_GROUP)
+    #     text = Text(LEVEL_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_LEFT)
+    #     position = Point(HUD_MARGIN, HUD_MARGIN)
+    #     label = Label(text, position)
+    #     cast.add_actor(LEVEL_GROUP, label)
 
-    def _add_lives(self, cast):
-        cast.clear_actors(LIVES_GROUP)
-        text = Text(LIVES_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_RIGHT)
-        position = Point(SCREEN_WIDTH - HUD_MARGIN, HUD_MARGIN)
-        label = Label(text, position)
-        cast.add_actor(LIVES_GROUP, label)
+    # def _add_lives(self, cast):
+    #     cast.clear_actors(LIVES_GROUP)
+    #     text = Text(LIVES_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_RIGHT)
+    #     position = Point(SCREEN_WIDTH - HUD_MARGIN, HUD_MARGIN)
+    #     label = Label(text, position)
+    #     cast.add_actor(LIVES_GROUP, label)
 
     def _add_score(self, cast):
         cast.clear_actors(SCORE_GROUP)
