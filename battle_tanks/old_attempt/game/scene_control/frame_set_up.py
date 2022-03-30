@@ -90,6 +90,7 @@ class FrameSetUp:
         # self._add_background(cast)
         self._add_stats(cast)
         self._add_score(cast)
+        self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
@@ -199,7 +200,7 @@ class FrameSetUp:
         bullet.release()
 
     def _add_bullets(self, cast):
-        cast.clear_actors(BULLET_GROUP)
+        # cast.clear_actors(BULLET_GROUP) #moved to _remove_bulllet
         x = CENTER_X - BULLET_WIDTH / 2
         y = SCREEN_HEIGHT - TANK_HEIGHT - BULLET_HEIGHT  
         position = Point(x, y)
@@ -209,6 +210,9 @@ class FrameSetUp:
         image = Image(BULLET_IMAGE)
         bullet = Bullet(body, image, True)
         cast.add_actor(BULLET_GROUP, bullet)
+    
+    def _remove_bullet(self, cast):
+        cast.clear_actors(BULLET_GROUP)
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)

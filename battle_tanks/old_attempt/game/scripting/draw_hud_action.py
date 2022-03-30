@@ -12,9 +12,17 @@ class DrawHudAction(Action):
         # self._draw_label(cast, LEVEL_GROUP, LEVEL_FORMAT, stats.get_level())
         # self._draw_label(cast, LIVES_GROUP, LIVES_FORMAT, stats.get_lives())
         self._draw_label(cast, SCORE_GROUP, SCORE_FORMAT, stats.get_score())
+        self._draw_label_n(cast, SCORE_GROUP, SCORE_FORMAT, stats.get_score(), n=1)
 
     def _draw_label(self, cast, group, format_str, data):
         label = cast.get_first_actor(group)
+        text = label.get_text()
+        text.set_value(format_str.format(data))
+        position = label.get_position()
+        self._video_service.draw_text(text, position)
+    
+    def _draw_label_n(self, cast, group, format_str, data, n=1):
+        label = cast.get_nth_actor(group, n)
         text = label.get_text()
         text.set_value(format_str.format(data))
         position = label.get_position()
