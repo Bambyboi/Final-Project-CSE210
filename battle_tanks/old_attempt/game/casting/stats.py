@@ -8,8 +8,8 @@ class Stats(Actor):
     def __init__(self, debug = False):
         """Constructs a new Stats."""
         super().__init__(debug)
-        self._level = 1
-        self._lives = DEFAULT_LIVES
+        # self._level = 1
+        # self._lives = DEFAULT_LIVES
         self._score = 0
 
     # def add_life(self):   ### Not needed

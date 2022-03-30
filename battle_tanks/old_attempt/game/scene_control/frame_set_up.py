@@ -86,11 +86,11 @@ class FrameSetUp:
     
     
     def _prepare_start_menu(self, cast, script):
-        self._start_menu_background = START_MENU_IMAGE #I don't think we need this.. just the next part, but it needs set up
+        # self._start_menu_background = START_MENU_IMAGE #I don't think we need this.. just the next part, but it needs set up
         # self._add_background(cast)
         self._add_stats(cast)
         self._add_score(cast)
-        self._add_score(cast)
+        # self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
@@ -140,7 +140,15 @@ class FrameSetUp:
 
     def _prepare_start_playing(self, cast, script):
         # self._add_background(cast)
-        self._
+        
+
+
+
+
+
+
+
+        
 
         """puts in two tanks contolled by two players
         """

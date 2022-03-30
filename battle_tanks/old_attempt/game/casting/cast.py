@@ -69,6 +69,9 @@ class Cast:
             result = self._actors[group][0]
         return result
 
+
+        { GROUP_NAME : [item1, item2]}
+
     def get_nth_actor(self, group, n=1): #default is second actor
         """Gets the first actor in the given group.
         
