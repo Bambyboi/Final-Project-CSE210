@@ -69,10 +69,6 @@ PLAY_AGAIN = 5
 
 # VISUALS
 
-START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.png"
-CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.png"
-
-
 # -------------------------------------------------------------------------------------------------- 
 # SCRIPTING CONSTANTS
 # -------------------------------------------------------------------------------------------------- 
@@ -95,6 +91,13 @@ STATS_GROUP = "stats"
 DEFAULT_LIVES = 5
 P1_LIVES = 5
 P2_LIVES = 5
+
+# Background
+BACKGROUND_GROUP = "backgrounds"
+START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.png"
+CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.png"
+
+
 
 # HUD
 HUD_MARGIN = 15

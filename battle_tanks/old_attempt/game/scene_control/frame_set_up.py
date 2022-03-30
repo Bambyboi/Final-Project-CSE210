@@ -221,8 +221,8 @@ class FrameSetUp:
         size = Point(SCREEN_WIDTH, SCREEN_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
-        image = Image(filename)
-        background = Background(body, image)
+        image = Image(START_MENU_IMAGE)
+        background = Background(body, image, True)
         cast.add_actor(BACKGROUND_GROUP, background)
 
     def _activate_bullet(self, cast):
