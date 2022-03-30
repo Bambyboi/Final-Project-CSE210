@@ -11,7 +11,7 @@ class CollideTankAction(Action):
         
     def execute(self, cast, script, callback):
         bullet = cast.get_first_actor(BULLET_GROUP)
-        tank = cast.get_first_actor(TANK_GROUP)
+        tank = cast.get_first_actor(TANKS_GROUP)
         
         bullet_body = bullet.get_body()
         tank_body = tank.get_body()

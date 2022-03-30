@@ -10,8 +10,8 @@ class CollideBrickAction(Action):
         self._audio_service = audio_service
         
     def execute(self, cast, script, callback):
-        ball = cast.get_first_actor(BALL_GROUP)
-        bricks = cast.get_actors(BRICK_GROUP)
+        ball = cast.get_first_actor(BULLET_GROUP)
+        bricks = cast.get_actors(BRICKS_GROUP)
         stats = cast.get_first_actor(STATS_GROUP)
         
         for brick in bricks:
@@ -24,4 +24,4 @@ class CollideBrickAction(Action):
                 self._audio_service.play_sound(sound)
                 points = brick.get_points()
                 stats.add_points(points)
-                cast.remove_actor(BRICK_GROUP, brick)
+                cast.remove_actor(BRICKS_GROUP, brick)

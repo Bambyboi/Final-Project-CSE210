@@ -140,8 +140,9 @@ class FrameSetUp:
 
     def _prepare_start_playing(self, cast, script):
         # self._add_background(cast)
+        self._
+
         """puts in two tanks contolled by two players
-        background
         """
         
         pass
@@ -192,8 +193,15 @@ class FrameSetUp:
     # ----------------------------------------------------------------------------------------------
     
     def _add_background(self, cast):
-        """not sure what is needed here yet, will add backgorund to its own cast list"""
-        pass
+        x = 0
+        y = 0
+        position = Point(x, y)
+        size = Point(SCREEN_WIDTH, SCREEN_HEIGHT)
+        velocity = Point(0, 0)
+        body = Body(position, size, velocity)
+        image = Image(MENU_IMAGE)
+        bullet = Bullet(body, image, True)
+        cast.add_actor(BULLET_GROUP, bullet)
 
     def _activate_bullet(self, cast):
         bullet = cast.get_first_actor(BULLET_GROUP)
