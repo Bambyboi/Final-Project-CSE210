@@ -207,7 +207,7 @@ class FrameSetUp:
         size = Point(SCREEN_WIDTH, SCREEN_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
-        image = Image(MENU_IMAGE)
+        image = Image(START_MENU_IMAGE)
         bullet = Bullet(body, image, True)
         cast.add_actor(BULLET_GROUP, bullet)
 
