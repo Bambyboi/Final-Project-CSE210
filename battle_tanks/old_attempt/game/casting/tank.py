@@ -49,12 +49,12 @@ class Tank(Actor):
 
     def drive_backward(self): # This used to swing left
         """Moves the tank backwards, relative to its angle."""
-        velocity = Point(-TANKS_VELOCITY, 0)  ###Changed from RACKET_VELOCITY to TANK_VELOCITY
+        velocity = Point(-TANK_VELOCITY, 0)  ###Changed from RACKET_VELOCITY to TANK_VELOCITY
         self._body.set_velocity(velocity)
         
     def drive_forward(self): # this used to swing right, now it moves the tank in a forward direction
         """Moves the tank forwards, relative to its angle."""
-        velocity = Point(TANKS_VELOCITY, 0)   ### Same as mentioned above, where is this originally from???
+        velocity = Point(TANK_VELOCITY, 0)   ### Same as mentioned above, where is this originally from???
         self._body.set_velocity(velocity)
     
     def stop_moving(self):

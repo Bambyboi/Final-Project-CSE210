@@ -10,6 +10,7 @@ from game.casting.point import Point # Same
 from game.casting.tank import Tank # Changed ALL INSTANCES of RACKET to TANK
 from game.casting.stats import Stats # Same, though it needs new methods for score
 from game.casting.text import Text # Same
+from game.casting.background import Background
 from game.scripting.change_scene_action import ChangeSceneAction # Same
 from game.scripting.check_over_action import CheckOverAction # Same
 from game.scripting.collide_borders_action import CollideBordersAction #Same, so far
@@ -86,8 +87,7 @@ class FrameSetUp:
     
     
     def _prepare_start_menu(self, cast, script):
-        # self._start_menu_background = START_MENU_IMAGE #I don't think we need this.. just the next part, but it needs set up
-        # self._add_background(cast)
+        self._add_background(cast, START_MENU_IMAGE)
         self._add_stats(cast)
         self._add_score(cast)
         # self._add_score(cast)
@@ -107,9 +107,8 @@ class FrameSetUp:
 
     
     def _prepare_controls(self, cast, script):
-        self._start_menu_background = CONTROLS_IMAGE
         # do we need to clear the old background first?
-        # self._add_background(cast)
+        self._add_background(cast, CONTROLS_IMAGE)
         self._add_dialog(cast, ENTER_TO_START)
 
         self._add_initialize_script(script)
@@ -140,7 +139,22 @@ class FrameSetUp:
 
     def _prepare_start_playing(self, cast, script):
         # self._add_background(cast)
+        self._add_stats(cast)   
+    #    self._add_lives(cast)
+        self._add_score(cast)
+        self._add_bullets(cast)
+        self._add_bricks(cast)
+        self._add_tank(cast)
         
+        self._add_dialog(cast, ENTER_TO_START)
+
+        self._add_initialize_script(script)
+        self._add_load_script(script)
+       # script.clear_actions(INPUT)
+        #script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        self._add_output_script(script)
+        self._add_unload_script(script)
+        self._add_release_script(script)
 
 
 
@@ -200,16 +214,16 @@ class FrameSetUp:
     # casting methods
     # ----------------------------------------------------------------------------------------------
     
-    def _add_background(self, cast):
+    def _add_background(self, cast, filename):
         x = 0
         y = 0
         position = Point(x, y)
         size = Point(SCREEN_WIDTH, SCREEN_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
-        image = Image(START_MENU_IMAGE)
-        bullet = Bullet(body, image, True)
-        cast.add_actor(BULLET_GROUP, bullet)
+        image = Image(filename)
+        background = Background(body, image)
+        cast.add_actor(BACKGROUND_GROUP, background)
 
     def _activate_bullet(self, cast):
         bullet = cast.get_first_actor(BULLET_GROUP)
