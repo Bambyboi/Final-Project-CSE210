@@ -22,6 +22,7 @@ from game.scripting.draw_bricks_action import DrawBricksAction # Same, for now..
 from game.scripting.draw_dialog_action import DrawDialogAction # Same
 from game.scripting.draw_hud_action import DrawHudAction # Same
 from game.scripting.draw_tank_action import DrawTankAction # Same, for now...
+from game.scripting.draw_background_action import DrawBackgroundAction
 from game.scripting.end_drawing_action import EndDrawingAction # Same
 from game.scripting.initialize_devices_action import InitializeDevicesAction # Same
 from game.scripting.load_assets_action import LoadAssetsAction # Same
@@ -50,6 +51,7 @@ class FrameSetUp:
     COLLIDE_BRICKS_ACTION = CollideBrickAction(PHYSICS_SERVICE, AUDIO_SERVICE)
     COLLIDE_TANK_ACTION = CollideTankAction(PHYSICS_SERVICE, AUDIO_SERVICE)
     CONTROL_TANK_ACTION = ControlTankAction(KEYBOARD_SERVICE)
+    DRAW_BACKGROUND_ACTION = DrawBackgroundAction(VIDEO_SERVICE)
     DRAW_BULLET_ACTION = DrawBulletAction(VIDEO_SERVICE)
     DRAW_BRICKS_ACTION = DrawBricksAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
@@ -215,13 +217,14 @@ class FrameSetUp:
     # ----------------------------------------------------------------------------------------------
     
     def _add_background(self, cast, filename):
+        cast.clear_actors(BACKGROUND_GROUP)
         x = 0
         y = 0
         position = Point(x, y)
         size = Point(SCREEN_WIDTH, SCREEN_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
-        image = Image(START_MENU_IMAGE)
+        image = Image(filename)
         background = Background(body, image, True)
         cast.add_actor(BACKGROUND_GROUP, background)
 
@@ -337,6 +340,7 @@ class FrameSetUp:
     def _add_output_script(self, script):
         script.clear_actions(OUTPUT)
         script.add_action(OUTPUT, self.START_DRAWING_ACTION)
+        script.add_action(OUTPUT, self.DRAW_BACKGROUND_ACTION)
         script.add_action(OUTPUT, self.DRAW_HUD_ACTION)
         script.add_action(OUTPUT, self.DRAW_BULLET_ACTION)
         script.add_action(OUTPUT, self.DRAW_BRICKS_ACTION)

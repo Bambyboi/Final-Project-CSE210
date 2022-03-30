@@ -1,6 +1,7 @@
 from mimetypes import init
 from constants import *
 from game.casting.actor import Actor
+from game.casting.point import Point
 
 class Background(Actor):
     """init(self, filename) 
@@ -18,6 +19,22 @@ class Background(Actor):
         super().__init__(debug)
         self._body = body
         self._image = image
+
+    def get_body(self):
+        """Gets the bullet's body.
+        
+        Returns:
+            An instance of Body.
+        """
+        return self._body
+
+    def get_image(self):
+        """Gets the bullet's image.
+        
+        Returns:
+            An instance of Image.
+        """
+        return self._image
 
     def _display_background(self):
         """display the background"""
