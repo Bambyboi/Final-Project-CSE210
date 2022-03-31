@@ -91,8 +91,8 @@ class FrameSetUp:
     def _prepare_start_menu(self, cast, script):
         self._add_background(cast, START_MENU_IMAGE)
         self._add_stats(cast)
-        self._add_score(cast)
-        # self._add_score(cast)
+        self._add_score(cast, player=1)
+        self._add_score(cast, player=2)
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast, player=1)
@@ -144,7 +144,7 @@ class FrameSetUp:
         self._add_background(cast, BACKGROUND_IMAGE)
         self._add_stats(cast)   
     #    self._add_lives(cast)
-        self._add_score(cast)
+        # self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
         # self._add_tank(cast)
@@ -156,7 +156,7 @@ class FrameSetUp:
         self._add_load_script(script)
         script.clear_actions(INPUT)
         script.add_action(INPUT, self.CONTROL_TANK_ACTION)
-        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        # script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
         self._add_update_script(script)
         self._add_output_script(script)
         self._add_unload_script(script)
@@ -256,7 +256,7 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
-        print("added bricks") # edit to add walls of bricks in randomly but not on top of tank
+        # edit to add walls of bricks in randomly but not on top of tank
         
         # stats = cast.get_first_actor(STATS_GROUP)
         # level = stats.get_level() % BASE_LEVELS
@@ -309,10 +309,15 @@ class FrameSetUp:
     #     label = Label(text, position)
     #     cast.add_actor(LIVES_GROUP, label)
 
-    def _add_score(self, cast):
-        cast.clear_actors(SCORE_GROUP)
+    def _add_score(self, cast, player):
+        if player == 1:
+            x = 100
+            y = 0 
+        elif player == 2:
+            x = SCREEN_WIDTH - 100
+            y = 0
         text = Text(SCORE_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-        position = Point(CENTER_X, HUD_MARGIN)
+        position = Point(x, y)
         label = Label(text, position)
         cast.add_actor(SCORE_GROUP, label)
 
