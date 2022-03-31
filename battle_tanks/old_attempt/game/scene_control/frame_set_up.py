@@ -96,6 +96,7 @@ class FrameSetUp:
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
+        self._add_tank(cast, 2)
         self._add_dialog(cast, ENTER_TO_CONTROLS)
 
 
@@ -146,7 +147,8 @@ class FrameSetUp:
         self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
-        self._add_tank(cast)
+        # self._add_tank(cast)
+        # self._add_tank(cast, 2)
         
         self._add_dialog(cast, "IT WORKED")
 
@@ -315,7 +317,7 @@ class FrameSetUp:
         cast.add_actor(STATS_GROUP, stats)
 
     def _add_tank(self, cast, player=1):
-        cast.clear_actors(TANKS_GROUP)
+        # cast.clear_actors(TANKS_GROUP) # moved to _remove_tanks
         if player == 1:
             x = TANK_WIDTH
             y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
@@ -329,6 +331,9 @@ class FrameSetUp:
         animation = Animation(TANKS_IMAGES, TANK_RATE)
         tank = Tank(body, animation)
         cast.add_actor(TANKS_GROUP, tank)
+
+    def _remove_tanks(self, cast):
+        cast.clear_actors(TANKS_GROUP)
 
     # ----------------------------------------------------------------------------------------------
     # scripting methods
