@@ -66,9 +66,15 @@ class Tank(Actor):
         velocity = Point(0, TANK_VELOCITY)   ### Same as mentioned above, where is this originally from???
         self._body.set_velocity(velocity)
     
-    def stop_moving(self):
+    def stop_moving(self, wall=False):
         """Stops the tank from moving."""
-        velocity = Point(0, 0)
+        if not wall:
+            velocity = Point(0, 0)
+        else:
+            velocity = self._body.get_velocity()
+            _x = -velocity.get_x() * 2
+            _y = -velocity.get_y() * 2
+            velocity = Point(_x,_y)
         self._body.set_velocity(velocity)
 
         

@@ -15,7 +15,7 @@ class CollideBrickAction(Action):
         tanks = cast.get_actors(TANKS_GROUP)
         # stats = cast.get_first_actor(STATS_GROUP)
 
-        for i in bullets:
+        for i in range(len(bullets)):
             bullet = cast.get_nth_actor(BULLET_GROUP, i)
             for brick in bricks:
                 bullet_body = bullet.get_body()
@@ -28,11 +28,11 @@ class CollideBrickAction(Action):
                     # points = brick.get_points()
                     # stats.add_points(points)
                     cast.remove_actor(BRICKS_GROUP, brick)
-        for j in tanks:
+        for j in range(len(tanks)):
             tank = cast.get_nth_actor(TANKS_GROUP, j)
             for brick in bricks:
                 tank_body = tank.get_body()
                 brick_body = brick.get_body()
 
                 if self._physics_service.has_collided(tank_body, brick_body):
-                    tank.stop_moving()
+                    tank.stop_moving(wall=True)

@@ -94,7 +94,6 @@ class FrameSetUp:
         self._add_score(cast, player=1)
         self._add_score(cast, player=2)
         self._add_bullets(cast)
-        self._add_bricks(cast)
         self._add_tank(cast, player=1)
         self._add_tank(cast, player=2)
         self._add_dialog(cast, ENTER_TO_CONTROLS)
@@ -112,7 +111,7 @@ class FrameSetUp:
     def _prepare_controls(self, cast, script):
         # do we need to clear the old background first? nope :)
         self._add_background(cast, CONTROLS_IMAGE)
-        self._add_dialog(cast, ENTER_TO_START, y=CENTER_Y/2)
+        self._add_dialog(cast, ENTER_TO_START, y=CENTER_Y / 2)
 
         self._add_initialize_script(script)
         self._add_load_script(script)
@@ -227,6 +226,24 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
+        for i in range(50):
+            x = FIELD_LEFT + i * BRICK_WIDTH
+            y = BRICK_HEIGHT * i * 50 / (SCREEN_HEIGHT/25)
+            
+            position = Point(x, y)
+            size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+            velocity = Point(0, 0)
+            body = Body(position, size, velocity)
+
+            brick = Brick(body)
+            cast.add_actor(BRICKS_GROUP, brick)
+
+
+        # Drawing an outline around the map
+        # for i in range(round(SCREEN_WIDTH/BRICK_WIDTH)):
+            # x = i * BRICK_WIDTH
+            # y = 0
+            
         # edit to add walls of bricks in randomly but not on top of tank
         
         # stats = cast.get_first_actor(STATS_GROUP)

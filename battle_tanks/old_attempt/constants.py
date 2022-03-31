@@ -140,9 +140,9 @@ TANK_VELOCITY = 1
 # WALLS   ###Are these the bricks?
 WALLS_GROUP = "walls"
 WALL_IMAGES = {
-    "wall_1": "game/assets/images/wall_1.png",
-    "wall_2": "game/assets/images/wall_2.png",
-    "wall_3": "game/assets/images/wall_3.png"
+    "wall_1": "battle_tanks/old_attempt/game/assets/images/wall_1.png",
+    "wall_2": "battle_tanks/old_attempt/game/assets/images/wall_2.png",
+    "wall_3": "battle_tanks/old_attempt/game/assets/images/wall_3.png"
 }
 WALLS_WIDTH = 80
 WALLS_HEIGHT = 28
@@ -151,9 +151,9 @@ WALLS_LIVES = 10
 
 BRICKS_GROUP = "bricks"
 BRICK_IMAGES = {
-    "1": "game/assets/images/brick1.png",
-    "2": "game/assets/images/brick2.png",
-    "3": "game/assets/images/brick3.png"
+    1: "battle_tanks/old_attempt/game/assets/images/brick1.png",
+    2: "battle_tanks/old_attempt/game/assets/images/brick2.png",
+    3: "battle_tanks/old_attempt/game/assets/images/brick3.png"
 }
 BRICK_WIDTH = 21
 BRICK_HEIGHT = 7
