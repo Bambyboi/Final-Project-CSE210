@@ -8,20 +8,18 @@ class ControlTankAction(Action):
         self._keyboard_service = keyboard_service
         
     def execute(self, cast, script, callback):
-        for i in range(2):
-            if i == 1:
-                tank = cast.get_nth_actor(TANKS_GROUP, 0)
+                tank1 = cast.get_nth_actor(TANKS_GROUP, 0)
                 if self._keyboard_service.is_key_down(P1_UP): 
-                    tank.drive_forward()
+                    tank1.drive_forward()
                 elif self._keyboard_service.is_key_down(P1_DOWN): 
-                    tank.drive_backward()  
+                    tank1.drive_backward()  
                 else: 
-                    tank.stop_moving()  
-            elif i == 2:
-                tank = cast.get_nth_actor(TANKS_GROUP, 1)
+                    tank1.stop_moving()  
+
+                tank2 = cast.get_nth_actor(TANKS_GROUP, 1)
                 if self._keyboard_service.is_key_down(P2_UP): 
-                    tank.drive_forward()
+                    tank2.drive_forward()
                 elif self._keyboard_service.is_key_down(P2_DOWN): 
-                    tank.drive_backward()  
+                    tank2.drive_backward()  
                 else: 
-                    tank.stop_moving()     
+                    tank2.stop_moving()     
