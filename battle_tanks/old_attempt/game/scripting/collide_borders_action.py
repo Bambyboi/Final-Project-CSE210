@@ -39,3 +39,8 @@ class CollideBordersAction(Action):
             else:
                 callback.on_next(NEXT_ROUND)
                 self._audio_service.play_sound(over_sound)
+
+    def collide_borders(self, cast):
+        "collision of each tanks when it hits to the borders."
+
+        #if 
