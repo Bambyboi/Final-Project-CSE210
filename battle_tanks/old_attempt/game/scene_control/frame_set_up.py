@@ -314,10 +314,14 @@ class FrameSetUp:
         stats = Stats()
         cast.add_actor(STATS_GROUP, stats)
 
-    def _add_tank(self, cast):
+    def _add_tank(self, cast, player=1):
         cast.clear_actors(TANKS_GROUP)
-        x = CENTER_X - TANK_WIDTH / 2
-        y = SCREEN_HEIGHT - TANK_HEIGHT
+        if player == 1:
+            x = TANK_WIDTH
+            y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
+        elif player == 2:
+            x = SCREEN_WIDTH - TANK_WIDTH
+            y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
         position = Point(x, y)
         size = Point(TANK_WIDTH, TANK_HEIGHT)
         velocity = Point(0, 0)
