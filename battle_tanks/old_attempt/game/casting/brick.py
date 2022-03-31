@@ -14,16 +14,16 @@ class Brick(Actor):
         """
         super().__init__(debug)
         self._body = body
-        self._animation = animation
-        self._points = points
+        # self._animation = animation
+        # self._points = points
         
-    def get_animation(self):
-        """Gets the brick's image.
+    # def get_animation(self):
+    #     """Gets the brick's image.
         
-        Returns:
-            An instance of Image.
-        """
-        return self._animation
+    #     Returns:
+    #         An instance of Image.
+    #     """
+    #     return self._animation
 
     def get_body(self):
         """Gets the brick's body.
@@ -33,10 +33,10 @@ class Brick(Actor):
         """
         return self._body
 
-    def get_points(self):
-        """Gets the brick's points.
+    # def get_points(self):
+    #     """Gets the brick's points.
         
-        Returns:
-            A number representing the brick's points.
-        """
-        return self._points
+    #     Returns:
+    #         A number representing the brick's points.
+    #     """
+    #     return self._points
