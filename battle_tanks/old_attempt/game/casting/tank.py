@@ -6,7 +6,7 @@ from game.casting.point import Point
 class Tank(Actor):
     """A implement used to hit and bounce the ball in the game."""
     
-    def __init__(self, body, animation, debug = False):
+    def __init__(self, body, animation, image, debug = False):
         """Constructs a new Tank.
         
         Args:Args:
@@ -17,6 +17,7 @@ class Tank(Actor):
         super().__init__(debug)
         self._body = body
         self._animation = animation
+        self._image = image
 
     def get_animation(self):
         """Gets the tank's animation.
@@ -27,12 +28,20 @@ class Tank(Actor):
         return self._animation
 
     def get_body(self):
-        """Gets the tank's body.
+        """Gets the bullet's body.
         
         Returns:
             An instance of Body.
         """
         return self._body
+
+    def get_image(self):
+        """Gets the bullet's image.
+        
+        Returns:
+            An instance of Image.
+        """
+        return self._image
 
     def move_next(self):
         """Moves the tank using its velocity."""

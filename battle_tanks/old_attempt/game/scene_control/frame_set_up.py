@@ -95,8 +95,8 @@ class FrameSetUp:
         # self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
-        self._add_tank(cast)
-        self._add_tank(cast, 2)
+        self._add_tank(cast, player=2)
+        self._add_tank(cast, player=1)
         self._add_dialog(cast, ENTER_TO_CONTROLS)
 
 
@@ -322,14 +322,16 @@ class FrameSetUp:
             x = TANK_WIDTH
             y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
         elif player == 2:
-            x = SCREEN_WIDTH - TANK_WIDTH
+            x = SCREEN_WIDTH - TANK_WIDTH * 2
             y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
+
         position = Point(x, y)
         size = Point(TANK_WIDTH, TANK_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
         animation = Animation(TANKS_IMAGES, TANK_RATE)
-        tank = Tank(body, animation)
+        image = Image(TANKS_IMAGES[f"player_{player}"])
+        tank = Tank(body, animation, image)
         cast.add_actor(TANKS_GROUP, tank)
 
     def _remove_tanks(self, cast):
@@ -353,6 +355,7 @@ class FrameSetUp:
         script.add_action(OUTPUT, self.DRAW_HUD_ACTION)
         script.add_action(OUTPUT, self.DRAW_BULLET_ACTION)
         script.add_action(OUTPUT, self.DRAW_BRICKS_ACTION)
+        script.add_action(OUTPUT, self.DRAW_TANK_ACTION)
         script.add_action(OUTPUT, self.DRAW_TANK_ACTION)
         script.add_action(OUTPUT, self.DRAW_DIALOG_ACTION)
         script.add_action(OUTPUT, self.END_DRAWING_ACTION)
