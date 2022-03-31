@@ -27,9 +27,9 @@ FONT_SMALL = 32
 FONT_LARGE = 48
 
 # SOUND
-BOUNCE_SOUND = "game/assets/sounds/sound1.wav"
-WELCOME_SOUND = "game/assets/sounds/sound2.wav"
-OVER_SOUND = "game/assets/sounds/over.wav"
+BOUNCE_SOUND = "battle_tanks/old_attempt/game/assets/sounds/sound1.wav"
+WELCOME_SOUND = "battle_tanks/old_attempt/game/assets/sounds/150mm_gun_shot.mp3"
+OVER_SOUND = "battle_tanks/old_attempt/game/assets/sounds/over.wav"
 
 # TEXT
 ALIGN_CENTER = 0
@@ -42,17 +42,17 @@ WHITE = Color(255, 255, 255)
 PURPLE = Color(255, 0, 255)
 
 # KEYS P1
-P1_LEFT = "left"
-P1_RIGHT = "right"
-P1_UP = "up"
-P1_Down = "down"
+P1_LEFT = "a"
+P1_RIGHT = "d"
+P1_UP = "w"
+P1_DOWN = "s"
 P1_SHOOT = "q"
 
 # KEYS P2
-P2_LEFT = "left"
-P2_RIGHT = "right"
-P2_UP = "up"
-P2_Down = "down"
+P2_LEFT = "j"
+P2_RIGHT = "l"
+P2_UP = "i"
+P2_DOWN = "k"
 P2_SHOOT = "u"
 
 # General KEYS 
@@ -132,7 +132,7 @@ TANKS_IMAGES = {
 TANK_WIDTH = 50 #100
 TANK_HEIGHT = 50 #100
 TANK_RATE = 6
-TANK_VELOCITY = 7
+TANK_VELOCITY = 1
 
 # WALLS   ###Are these the bricks?
 WALLS_GROUP = "walls"

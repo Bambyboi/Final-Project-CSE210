@@ -95,8 +95,8 @@ class FrameSetUp:
         # self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
-        self._add_tank(cast, player=2)
         self._add_tank(cast, player=1)
+        self._add_tank(cast, player=2)
         self._add_dialog(cast, ENTER_TO_CONTROLS)
 
 
@@ -155,7 +155,9 @@ class FrameSetUp:
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
+        script.add_action(INPUT, self.CONTROL_TANK_ACTION)
         script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        self._add_update_script(script)
         self._add_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
@@ -174,13 +176,16 @@ class FrameSetUp:
         pass
         
     def _prepare_next_round(self, cast, script):
+        cast.clear_actors(DIALOG_GROUP)
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
-        self._add_dialog(cast, LOADING_NEW_MAP)
+        # self._add_dialog(cast, LOADING_NEW_MAP)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, TimedChangeSceneAction(NEXT_ROUND, 2))
+        script.add_action(INPUT, self.CONTROL_TANK_ACTION)
+        # script.add_action(INPUT, TimedChangeSceneAction(NEXT_ROUND, 2))
+        self._add_update_script(script)
         self._add_output_script(script)
         script.add_action(OUTPUT, PlaySoundAction(self.AUDIO_SERVICE, WELCOME_SOUND))
         

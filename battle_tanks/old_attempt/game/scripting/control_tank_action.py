@@ -9,10 +9,19 @@ class ControlTankAction(Action):
         
     def execute(self, cast, script, callback):
         for i in range(2):
-            tank = cast.get_nth_actor(TANKS_GROUP, i)
-            if self._keyboard_service.is_key_down(P1_LEFT): 
-                tank.swing_left()
-            elif self._keyboard_service.is_key_down(P1_RIGHT): 
-                tank.swing_right()  
-            else: 
-                tank.stop_moving()        
+            if i == 1:
+                tank = cast.get_nth_actor(TANKS_GROUP, 0)
+                if self._keyboard_service.is_key_down(P1_UP): 
+                    tank.drive_forward()
+                elif self._keyboard_service.is_key_down(P1_DOWN): 
+                    tank.drive_backward()  
+                else: 
+                    tank.stop_moving()  
+            elif i == 2:
+                tank = cast.get_nth_actor(TANKS_GROUP, 1)
+                if self._keyboard_service.is_key_down(P2_UP): 
+                    tank.drive_forward()
+                elif self._keyboard_service.is_key_down(P2_DOWN): 
+                    tank.drive_backward()  
+                else: 
+                    tank.stop_moving()     
