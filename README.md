@@ -67,9 +67,6 @@ Priorities:
 
 
 
-
-
-
 Notes: To-do list
 
 
