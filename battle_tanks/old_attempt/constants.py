@@ -96,7 +96,7 @@ P2_LIVES = 5
 BACKGROUND_GROUP = "backgrounds"
 START_MENU_IMAGE = "battle_tanks/old_attempt/game/assets/images/start_menu_image.png"
 CONTROLS_IMAGE = "battle_tanks/old_attempt/game/assets/images/controls_image.png"
-
+BACKGROUND_IMAGE = "battle_tanks/old_attempt/game/assets/images/background_image.png"
 
 
 # HUD

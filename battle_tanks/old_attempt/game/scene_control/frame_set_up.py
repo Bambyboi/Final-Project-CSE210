@@ -140,7 +140,7 @@ class FrameSetUp:
     #     self._add_release_script(script)
 
     def _prepare_start_playing(self, cast, script):
-        # self._add_background(cast)
+        self._add_background(cast, BACKGROUND_IMAGE)
         self._add_stats(cast)   
     #    self._add_lives(cast)
         self._add_score(cast)
@@ -148,12 +148,12 @@ class FrameSetUp:
         self._add_bricks(cast)
         self._add_tank(cast)
         
-        self._add_dialog(cast, ENTER_TO_START)
+        self._add_dialog(cast, "IT WORKED")
 
         self._add_initialize_script(script)
         self._add_load_script(script)
-       # script.clear_actions(INPUT)
-        #script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
+        script.clear_actions(INPUT)
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
         self._add_output_script(script)
         self._add_unload_script(script)
         self._add_release_script(script)
