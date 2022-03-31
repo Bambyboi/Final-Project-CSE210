@@ -112,7 +112,7 @@ class FrameSetUp:
     def _prepare_controls(self, cast, script):
         # do we need to clear the old background first?
         self._add_background(cast, CONTROLS_IMAGE)
-        self._add_dialog(cast, ENTER_TO_START)
+        self._add_dialog(cast, ENTER_TO_START, y=CENTER_Y/2)
 
         self._add_initialize_script(script)
         self._add_load_script(script)
@@ -288,10 +288,10 @@ class FrameSetUp:
         #             brick = Brick(body, animation, points)
         #             cast.add_actor(BRICK_GROUP, brick)
 
-    def _add_dialog(self, cast, message):
+    def _add_dialog(self, cast, message, x=CENTER_X,y=CENTER_Y):
         cast.clear_actors(DIALOG_GROUP)
         text = Text(message, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
-        position = Point(CENTER_X, CENTER_Y)
+        position = Point(x, y)
         label = Label(text, position)
         cast.add_actor(DIALOG_GROUP, label)
 
@@ -322,9 +322,11 @@ class FrameSetUp:
         cast.add_actor(SCORE_GROUP, label)
 
     def _add_stats(self, cast):
-        cast.clear_actors(STATS_GROUP)
         stats = Stats()
         cast.add_actor(STATS_GROUP, stats)
+    
+    def _remove_stats(self, cast):
+        cast.clear_actors(STATS_GROUP)
 
     def _add_tank(self, cast, player=1):
         # cast.clear_actors(TANKS_GROUP) # moved to _remove_tanks

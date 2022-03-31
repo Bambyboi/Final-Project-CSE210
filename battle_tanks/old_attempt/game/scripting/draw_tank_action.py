@@ -9,7 +9,7 @@ class DrawTankAction(Action):
         self._video_service = video_service
         
     def execute(self, cast, script, callback):
-        for i in range(2):
+        for i in range(NUMBER_OF_PLAYERS):
             tank = cast.get_nth_actor(TANKS_GROUP, i)
             body = tank.get_body()
 

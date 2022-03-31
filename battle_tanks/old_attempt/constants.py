@@ -41,6 +41,9 @@ BLACK = Color(0, 0, 0)
 WHITE = Color(255, 255, 255)
 PURPLE = Color(255, 0, 255)
 
+# PLAYER COUNT
+NUMBER_OF_PLAYERS = 2
+
 # KEYS P1
 P1_LEFT = "a"
 P1_RIGHT = "d"
