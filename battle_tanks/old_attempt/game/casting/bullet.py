@@ -1,4 +1,5 @@
 import random
+import math
 from constants import *
 from game.casting.actor import Actor
 from game.casting.point import Point
@@ -60,3 +61,12 @@ class Bullet(Actor):
         vy = -BULLET_VELOCITY
         velocity = Point(vx, vy)
         self._body.set_velocity(velocity)
+
+
+    def fire(self, angle):
+        self.velocity.dx = math.cos(math.radians(angle)) * BULLET_SPEED
+        self.velocity.dy = math.sin(math.radians(angle)) * BULLET_SPEED
+        
+       # self.center.x = RIFLE_WIDTH * math.cos(math.radians(angle))
+       # self.center.y = RIFLE_WIDTH * math.sin(math.radians(angle))
+        

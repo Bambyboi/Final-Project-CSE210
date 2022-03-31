@@ -16,7 +16,7 @@ CENTER_X = SCREEN_WIDTH / 2
 CENTER_Y = SCREEN_HEIGHT / 2
 
 # FIELD
-FIELD_TOP = 60
+FIELD_TOP = 0
 FIELD_BOTTOM = SCREEN_HEIGHT
 FIELD_LEFT = 0
 FIELD_RIGHT = SCREEN_WIDTH
@@ -109,8 +109,8 @@ SCORE_FORMAT = "SCORE: {}"
 # BULLET
 BULLET_GROUP = "bullet"
 BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.png"
-BULLET_WIDTH = 28
-BULLET_HEIGHT = 28
+BULLET_WIDTH = 20
+BULLET_HEIGHT = 20
 BULLET_VELOCITY = 6
 
 # PLAYER 1 
@@ -160,6 +160,11 @@ BRICK_LIVES = 10
 # DIALOG
 DIALOG_GROUP = "dialogs"
 ENTER_TO_CONTROLS = "PRESS ENTER"
-ENTER_TO_START = f"Player 1 Controls:            Player 2 Controls:\n\nPRESS ENTER AGAIN TO BEGIN"
+ENTER_TO_START = f"Player 1 Controls: \n  ASDW to move and Q to shoot.     \nPlayer 2 Controls: \n IJKL to move and U to shoot.  \n \n   PRESS ENTER AGAIN TO BEGIN"
 LOADING_NEW_MAP = "LOADING NEW MAP"
 WINNER = "{winner} Wins!" # We will worry about this later if there is time
+
+
+#bullet 
+BULLET_SPEED = 10
+BULLET_LIFE = 60
