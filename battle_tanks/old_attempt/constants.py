@@ -129,8 +129,8 @@ TANKS_IMAGES = {
     "player_3": "battle_tanks/old_attempt/game/assets/images/tank_yellow.png",
     "player_4": "battle_tanks/old_attempt/game/assets/images/tank_green.png"
 }
-TANK_WIDTH = 100
-TANK_HEIGHT = 100
+TANK_WIDTH = 300 #100
+TANK_HEIGHT = 500 #100
 TANK_RATE = 6
 TANK_VELOCITY = 7
 
