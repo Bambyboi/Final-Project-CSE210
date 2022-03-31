@@ -160,6 +160,6 @@ BRICK_LIVES = 10
 # DIALOG
 DIALOG_GROUP = "dialogs"
 ENTER_TO_CONTROLS = "PRESS ENTER"
-ENTER_TO_START = "PRESS ENTER AGAIN TO BEGIN"
+ENTER_TO_START = f"Player 1 Controls:            Player 2 Controls:\n\nPRESS ENTER AGAIN TO BEGIN"
 LOADING_NEW_MAP = "LOADING NEW MAP"
 WINNER = "{winner} Wins!" # We will worry about this later if there is time
