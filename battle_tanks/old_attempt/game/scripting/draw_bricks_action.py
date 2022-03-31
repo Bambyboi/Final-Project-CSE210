@@ -1,5 +1,6 @@
 from constants import *
 from game.scripting.action import Action
+import random
 
 
 class DrawBricksAction(Action):
@@ -17,7 +18,9 @@ class DrawBricksAction(Action):
                 rectangle = body.get_rectangle()
                 self._video_service.draw_rectangle(rectangle, PURPLE)
                 
-            animation = brick.get_animation()
-            image = animation.next_image()
+            # animation = brick.get_animation()
+            # image = animation.next_image()
+            image_num = random.randint(1,3)
+            image = BRICK_IMAGES[image_num]
             position = body.get_position()
             self._video_service.draw_image(image, position)

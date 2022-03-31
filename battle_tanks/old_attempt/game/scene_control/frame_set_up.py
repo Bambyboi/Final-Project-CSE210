@@ -110,7 +110,7 @@ class FrameSetUp:
 
     
     def _prepare_controls(self, cast, script):
-        # do we need to clear the old background first?
+        # do we need to clear the old background first? nope :)
         self._add_background(cast, CONTROLS_IMAGE)
         self._add_dialog(cast, ENTER_TO_START, y=CENTER_Y/2)
 
@@ -122,23 +122,6 @@ class FrameSetUp:
         self._add_unload_script(script)
         self._add_release_script(script)
     
-    # def _prepare_new_game(self, cast, script):
-    #     self._add_stats(cast)
-    #     self._add_level(cast)
-    #     self._add_lives(cast)
-    #     self._add_score(cast)
-    #     self._add_bullets(cast)
-    #     self._add_bricks(cast)
-    #     self._add_tank(cast)
-    #     self._add_dialog(cast, ENTER_TO_START)
-
-    #     self._add_initialize_script(script)
-    #     self._add_load_script(script)
-    #     script.clear_actions(INPUT)
-    #     script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, NEXT_ROUND))
-    #     self._add_output_script(script)
-    #     self._add_unload_script(script)
-    #     self._add_release_script(script)
 
     def _prepare_start_playing(self, cast, script):
         self._add_background(cast, BACKGROUND_IMAGE)
@@ -162,18 +145,6 @@ class FrameSetUp:
         self._add_unload_script(script)
         self._add_release_script(script)
 
-
-
-
-
-
-
-        
-
-        """puts in two tanks contolled by two players
-        """
-        
-        pass
         
     def _prepare_next_round(self, cast, script):
         cast.clear_actors(DIALOG_GROUP)

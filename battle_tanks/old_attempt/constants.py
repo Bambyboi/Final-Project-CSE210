@@ -151,14 +151,14 @@ WALLS_LIVES = 10
 
 BRICKS_GROUP = "bricks"
 BRICK_IMAGES = {
-    "brick_1": "game/assets/images/brick_1.png",
-    "brick_2": "game/assets/images/brick_2.png",
-    "brick_3": "game/assets/images/brick_3.png"
+    "1": "game/assets/images/brick1.png",
+    "2": "game/assets/images/brick2.png",
+    "3": "game/assets/images/brick3.png"
 }
-BRICK_WIDTH = 80
-BRICK_HEIGHT = 28
-BRICK_RATE = 4
-BRICK_LIVES = 10
+BRICK_WIDTH = 21
+BRICK_HEIGHT = 7
+# BRICK_RATE = 4
+# BRICK_LIVES = 10
 
 # DIALOG
 DIALOG_GROUP = "dialogs"
