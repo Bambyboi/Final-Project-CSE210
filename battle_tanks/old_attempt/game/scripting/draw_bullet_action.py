@@ -8,13 +8,14 @@ class DrawBulletAction(Action):
         self._video_service = video_service
         
     def execute(self, cast, script, callback):
-        bullet = cast.get_first_actor(BULLET_GROUP)
-        body = bullet.get_body()
+        bullets = cast.get_actors(BULLET_GROUP)
+        for bullet in bullets:
+            body = bullet.get_body()
 
-        if bullet.is_debug():
-            rectangle = body.get_rectangle()
-            self._video_service.draw_rectangle(rectangle, PURPLE)
+            if bullet.is_debug():
+                rectangle = body.get_rectangle()
+                self._video_service.draw_rectangle(rectangle, PURPLE)
             
-        image = bullet.get_image()
-        position = body.get_position()
-        self._video_service.draw_image(image, position)
+            image = body.get_image()
+            position = body.get_position()
+            self._video_service.draw_image(image, position)

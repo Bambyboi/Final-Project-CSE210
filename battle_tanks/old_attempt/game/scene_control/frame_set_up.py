@@ -94,7 +94,6 @@ class FrameSetUp:
         self._add_stats(cast)
         self._add_score(cast, player=1)
         self._add_score(cast, player=2)
-        self._add_bullets(cast)
         self._add_tank(cast, player=1)
         self._add_tank(cast, player=2)
         self._add_dialog(cast, ENTER_TO_CONTROLS)
@@ -110,10 +109,8 @@ class FrameSetUp:
 
     
     def _prepare_controls(self, cast, script):
-        # do we need to clear the old background first? nope :)
         self._add_background(cast, CONTROLS_IMAGE)
         self._add_dialog(cast, ENTER_TO_START, y=CENTER_Y / 2)
-
         self._add_initialize_script(script)
         self._add_load_script(script)
         script.clear_actions(INPUT)
@@ -126,12 +123,8 @@ class FrameSetUp:
     def _prepare_start_playing(self, cast, script):
         self._add_background(cast, BACKGROUND_IMAGE)
         self._add_stats(cast)   
-    #    self._add_lives(cast)
-        # self._add_score(cast)
         self._add_bullets(cast)
         self._add_bricks(cast)
-        # self._add_tank(cast)
-        # self._add_tank(cast, 2)
         
         self._add_dialog(cast, "IT WORKED")
 
@@ -211,7 +204,6 @@ class FrameSetUp:
         bullet.release()
 
     def _add_bullets(self, cast):
-        # cast.clear_actors(BULLET_GROUP) #moved to _remove_bulllet
         x = CENTER_X - BULLET_WIDTH / 2
         y = SCREEN_HEIGHT - TANK_HEIGHT - BULLET_HEIGHT  
         position = Point(x, y)
@@ -227,10 +219,11 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
+        how_many_bricks_per_group = 50
         if NUMBER_OF_PLAYERS == 2:
-            for i in range(50):
-                x = FIELD_LEFT + i * BRICK_WIDTH
-                y = BRICK_HEIGHT * i * 50 / (SCREEN_HEIGHT/25)
+            for i in range(how_many_bricks_per_group):
+                x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
+                y = i * SCREEN_HEIGHT / how_many_bricks_per_group
                 
                 position = Point(x, y)
                 size = Point(BRICK_WIDTH, BRICK_HEIGHT)
@@ -242,6 +235,36 @@ class FrameSetUp:
 
                 brick = Brick(body)
                 cast.add_actor(BRICKS_GROUP, brick)
+            for i in range(how_many_bricks_per_group):
+                x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
+                y = SCREEN_HEIGHT - (i * SCREEN_HEIGHT / how_many_bricks_per_group)
+                
+                position = Point(x, y)
+                size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                velocity = Point(0, 0)
+                image_num = random.randint(1, 3)
+                image = BRICK_IMAGES[image_num]
+                body = Body(position, size, velocity, image)
+                
+
+                brick = Brick(body)
+                cast.add_actor(BRICKS_GROUP, brick)
+            for j in range(3):
+                for i in range(how_many_bricks_per_group):
+                    x = round(250 + 200 * j)
+                    y = SCREEN_HEIGHT - (i * SCREEN_HEIGHT / how_many_bricks_per_group)
+                    
+                    position = Point(x, y)
+                    size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                    velocity = Point(0, 0)
+                    image_num = random.randint(1, 3)
+                    image = BRICK_IMAGES[image_num]
+                    body = Body(position, size, velocity, image)
+                    
+
+                    brick = Brick(body)
+                    cast.add_actor(BRICKS_GROUP, brick)
+            
 
 
         # Drawing an outline around the map
