@@ -40,6 +40,7 @@ class CollideBordersAction(Action):
                 callback.on_next(NEXT_ROUND)
                 self._audio_service.play_sound(over_sound)
 
+    #first attempt
     #def collide_borders(self, cast):
     #    "collision of each tanks when it hits to the borders."
 
@@ -53,27 +54,28 @@ class CollideBordersAction(Action):
 
         for i in range(len(tanks)):
             tank = cast.get_nth_actor(TANKS_GROUP, i)
+            #field top
             for border_top in borders_top:
                 tank_body = tank.get_body()
                 border_top_body = border_top.get_body()
 
                 if self._physics_service.has_collided(tank_body, border_top_body):
                     tank.stop_moving(wall=True)
-
+            #field bottom
             for border_bottom in borders_bottom:
                 tank_body = tank.get_body()
                 border_bottom_body = border_bottom.get_body()
 
                 if self._physics_service.has_collided(tank_body, border_bottom_body):
                     tank.stop_moving(wall=True)
-
+            #field left
             for border_left in borders_left:
                 tank_body = tank.get_body()
                 border_left_body = border_left.get_body()
 
                 if self._physics_service.has_collided(tank_body, border_left_body):
                     tank.stop_moving(wall=True)
-
+            #field right
             for border_right in borders_right:
                 tank_body = tank.get_body()
                 border_right_body = border_right.get_body()
