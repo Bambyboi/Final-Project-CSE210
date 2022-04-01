@@ -40,7 +40,52 @@ class CollideBordersAction(Action):
                 callback.on_next(NEXT_ROUND)
                 self._audio_service.play_sound(over_sound)
 
-    def collide_borders(self, cast):
-        "collision of each tanks when it hits to the borders."
+    #def collide_borders(self, cast):
+    #    "collision of each tanks when it hits to the borders."
 
-        #if 
+    #    #if 
+        tanks = cast.get_actors(TANKS_GROUP)
+        borders_top = cast.get_actors(FIELD_TOP)
+        borders_bottom = cast.get_actors(FIELD_BOTTOM)
+        borders_left = cast.get_actors(FIELD_LEFT)
+        borders_right = cast.get_actors(FIELD_RIGHT)
+
+
+        for j in range(len(tanks)):
+            tank = cast.get_nth_actor(TANKS_GROUP, j)
+            for border_top in borders_top:
+                tank_body = tank.get_body()
+                border_top_body = border_top.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_top_body):
+                    tank.stop_moving(wall=True)
+
+            for border_bottom in borders_bottom:
+                tank_body = tank.get_body()
+                border_bottom_body = border_bottom.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_bottom_body):
+                    tank.stop_moving(wall=True)
+
+            for border_left in borders_left:
+                tank_body = tank.get_body()
+                border_left_body = border_left.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_left_body):
+                    tank.stop_moving(wall=True)
+
+            for border_right in borders_right:
+                tank_body = tank.get_body()
+                border_right_body = border_right.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_right_body):
+                    tank.stop_moving(wall=True)
+
+                    
+
+           # for brick in bricks:
+           #         tank_body = tank.get_body()
+           #         brick_body = brick.get_body()
+
+           #         if self._physics_service.has_collided(tank_body, brick_body):
+           #             tank.stop_moving(wall=True)
