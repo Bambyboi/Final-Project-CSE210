@@ -1,4 +1,5 @@
 import csv # Same
+import random
 from constants import * # Same
 from game.casting.animation import Animation # Same
 from game.casting.bullet import Bullet  # Changed ALL INSTANCES of BALL to BULLET
@@ -226,17 +227,21 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
-        for i in range(50):
-            x = FIELD_LEFT + i * BRICK_WIDTH
-            y = BRICK_HEIGHT * i * 50 / (SCREEN_HEIGHT/25)
-            
-            position = Point(x, y)
-            size = Point(BRICK_WIDTH, BRICK_HEIGHT)
-            velocity = Point(0, 0)
-            body = Body(position, size, velocity)
+        if NUMBER_OF_PLAYERS == 2:
+            for i in range(50):
+                x = FIELD_LEFT + i * BRICK_WIDTH
+                y = BRICK_HEIGHT * i * 50 / (SCREEN_HEIGHT/25)
+                
+                position = Point(x, y)
+                size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                velocity = Point(0, 0)
+                image_num = random.randint(1, 3)
+                image = BRICK_IMAGES[image_num]
+                body = Body(position, size, velocity, image)
+                
 
-            brick = Brick(body)
-            cast.add_actor(BRICKS_GROUP, brick)
+                brick = Brick(body)
+                cast.add_actor(BRICKS_GROUP, brick)
 
 
         # Drawing an outline around the map

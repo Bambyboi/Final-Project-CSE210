@@ -21,7 +21,7 @@ class DrawBricksAction(Action):
                 
             # animation = brick.get_animation()
             # image = animation.next_image()
-            image_num = 1
-            image = Image(BRICK_IMAGES[image_num])
+            
+            image = body.get_image()
             position = body.get_position()
             self._video_service.draw_image(image, position)

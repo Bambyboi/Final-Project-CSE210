@@ -1,15 +1,17 @@
 from game.casting.point import Point
 from game.casting.rectangle import Rectangle
+from game.casting.image import Image
 
 
 class Body:
     """A rigid body used for physics operations."""
     
-    def __init__(self, position = Point(), size = Point(), velocity = Point()):
+    def __init__(self, position = Point(), size = Point(), velocity = Point(), image="battle_tanks/old_attempt/game/assets/images/bullet1.png"):
         """Constructs a new Body."""
         self._position = position
         self._size = size
         self._velocity = velocity
+        self._image = Image(image)
     
     def get_position(self):
         """Gets the body's position.
@@ -66,3 +68,6 @@ class Body:
             velocity: An instance of Point.
         """
         self._velocity = velocity
+    
+    def get_image(self):
+        return self._image
