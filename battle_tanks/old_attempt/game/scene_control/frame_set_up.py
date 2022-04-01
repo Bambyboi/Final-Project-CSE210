@@ -204,8 +204,8 @@ class FrameSetUp:
         bullet.release()
 
     def _add_bullets(self, cast):
-        x = CENTER_X - BULLET_WIDTH / 2
-        y = SCREEN_HEIGHT - TANK_HEIGHT - BULLET_HEIGHT  
+        x = BULLET_WIDTH * 2
+        y = CENTER_Y - 100
         position = Point(x, y)
         size = Point(BULLET_WIDTH, BULLET_HEIGHT)
         velocity = Point(0, 0)

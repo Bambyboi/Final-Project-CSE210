@@ -27,9 +27,9 @@ FONT_SMALL = 32
 FONT_LARGE = 48
 
 # SOUND
-BOUNCE_SOUND = "battle_tanks/old_attempt/game/assets/sounds/sound1.wav"
-WELCOME_SOUND = "battle_tanks/old_attempt/game/assets/sounds/150mm_gun_shot.mp3"
-OVER_SOUND = "battle_tanks/old_attempt/game/assets/sounds/over.wav"
+HIT_SOUND = "battle_tanks/old_attempt/game/assets/sounds/boing.wav"
+WELCOME_SOUND = "battle_tanks/old_attempt/game/assets/sounds/boing.wav"
+OVER_SOUND = "battle_tanks/old_attempt/game/assets/sounds/boing.wav"
 
 # TEXT
 ALIGN_CENTER = 0

@@ -21,15 +21,15 @@ class CollideBrickAction(Action):
                 bullet_body = bullet.get_body()
                 brick_body = brick.get_body()
 
-                if self._physics_service.has_collided(brick_body, bullet_body):
+                if self._physics_service.has_collided(bullet_body, brick_body):
                     # bullet.bounce_y()
                     # sound = Sound(BOUNCE_SOUND)
                     # self._audio_service.play_sound(sound)
-                    # points = brick.get_points()
                     # stats.add_points(points)
                     cast.remove_actor(BRICKS_GROUP, brick)
-        for j in range(len(tanks)):
-            tank = cast.get_nth_actor(TANKS_GROUP, j)
+            
+                    
+        for tank in tanks:
             for brick in bricks:
                 tank_body = tank.get_body()
                 brick_body = brick.get_body()
