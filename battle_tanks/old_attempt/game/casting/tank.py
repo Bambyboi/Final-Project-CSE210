@@ -2,6 +2,7 @@
 from constants import *
 from game.casting.actor import Actor
 from game.casting.point import Point
+from game.casting.image import Image
 
 
 class Tank(Actor):
@@ -19,6 +20,8 @@ class Tank(Actor):
         self._body = body
         self._animation = animation
         self._image = image
+        self._image = self.get_image()
+        
 
     def get_animation(self):
         """Gets the tank's animation.
@@ -50,25 +53,29 @@ class Tank(Actor):
         velocity = self._body.get_velocity()
         new_position = position.add(velocity)
         self._body.set_position(new_position)
+        
+        
 
     def turn_left(self):
         """Rotates the tank counterclockwise at a steady pace."""
-        velocity = Point(-TANK_VELOCITY, 1 )
+        velocity = Point(-TANK_VELOCITY, 0)
+        # self._image.set_rotation(90) # trying to get the tank to rotate
         self._body.set_velocity(velocity)
 
     def turn_right(self):
         """Rotates the tank clockwise at a steady pace."""
-        velocity = Point(TANK_VELOCITY, 1)
+        velocity = Point(TANK_VELOCITY, 0)
+        # self._image.set_rotation(180)
         self._body.set_velocity(velocity)
 
     def drive_backward(self): # This used to swing left
         """Moves the tank backwards, relative to its angle."""
-        velocity = Point(0, -TANK_VELOCITY)  ###Changed from RACKET_VELOCITY to TANK_VELOCITY
+        velocity = Point(0, TANK_VELOCITY)  ###Changed from RACKET_VELOCITY to TANK_VELOCITY
         self._body.set_velocity(velocity)
         
     def drive_forward(self): # this used to swing right, now it moves the tank in a forward direction
         """Moves the tank forwards, relative to its angle."""
-        velocity = Point(0, TANK_VELOCITY)   ### Same as mentioned above, where is this originally from???
+        velocity = Point(0, -TANK_VELOCITY)   ### Same as mentioned above, where is this originally from???
         self._body.set_velocity(velocity)
     
     def stop_moving(self, wall=False):
@@ -77,8 +84,8 @@ class Tank(Actor):
             velocity = Point(0, 0)
         else:
             velocity = self._body.get_velocity()
-            _x = -velocity.get_x() * 2
-            _y = -velocity.get_y() * 2
+            _x = velocity.get_x() * .9
+            _y = velocity.get_y() * .9
             velocity = Point(_x,_y)
         self._body.set_velocity(velocity)
 

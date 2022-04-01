@@ -220,34 +220,35 @@ class FrameSetUp:
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
         how_many_bricks_per_group = 50
+        if NUMBER_OF_PLAYERS > 2:
+            for i in range(how_many_bricks_per_group):
+                x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
+                y = i * SCREEN_HEIGHT / how_many_bricks_per_group
+                
+                position = Point(x, y)
+                size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                velocity = Point(0, 0)
+                image_num = random.randint(1, 3)
+                image = BRICK_IMAGES[image_num]
+                body = Body(position, size, velocity, image)
+                brick = Brick(body)
+                cast.add_actor(BRICKS_GROUP, brick)
+            for i in range(how_many_bricks_per_group):
+                x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
+                y = SCREEN_HEIGHT - (i * SCREEN_HEIGHT / how_many_bricks_per_group)
+                
+                position = Point(x, y)
+                size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                velocity = Point(0, 0)
+                image_num = random.randint(1, 3)
+                image = BRICK_IMAGES[image_num]
+                body = Body(position, size, velocity, image)
+                brick = Brick(body)
+                cast.add_actor(BRICKS_GROUP, brick)
         if NUMBER_OF_PLAYERS == 2:
-            # for i in range(how_many_bricks_per_group):
-            #     x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
-            #     y = i * SCREEN_HEIGHT / how_many_bricks_per_group
-                
-            #     position = Point(x, y)
-            #     size = Point(BRICK_WIDTH, BRICK_HEIGHT)
-            #     velocity = Point(0, 0)
-            #     image_num = random.randint(1, 3)
-            #     image = BRICK_IMAGES[image_num]
-            #     body = Body(position, size, velocity, image)
-            #     brick = Brick(body)
-            #     cast.add_actor(BRICKS_GROUP, brick)
-            # for i in range(how_many_bricks_per_group):
-            #     x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
-            #     y = SCREEN_HEIGHT - (i * SCREEN_HEIGHT / how_many_bricks_per_group)
-                
-            #     position = Point(x, y)
-            #     size = Point(BRICK_WIDTH, BRICK_HEIGHT)
-            #     velocity = Point(0, 0)
-            #     image_num = random.randint(1, 3)
-            #     image = BRICK_IMAGES[image_num]
-            #     body = Body(position, size, velocity, image)
-                # brick = Brick(body)
-                # cast.add_actor(BRICKS_GROUP, brick)
-            for j in range(3):
+            for j in range(10):
                 for i in range(how_many_bricks_per_group):
-                    x = round(250 + 200 * j)
+                    x = round(250 + BRICK_WIDTH * j)
                     y = SCREEN_HEIGHT - (i * SCREEN_HEIGHT / how_many_bricks_per_group)
                     
                     position = Point(x, y)
@@ -394,10 +395,9 @@ class FrameSetUp:
         
     def _add_update_script(self, script):
         script.clear_actions(UPDATE)
-        script.add_action(UPDATE, self.MOVE_BULLET_ACTION)
-        script.add_action(UPDATE, self.MOVE_TANK_ACTION)
         script.add_action(UPDATE, self.COLLIDE_BORDERS_ACTION)
         script.add_action(UPDATE, self.COLLIDE_BRICKS_ACTION)
         script.add_action(UPDATE, self.COLLIDE_TANK_ACTION)
+        script.add_action(UPDATE, self.MOVE_BULLET_ACTION)
         script.add_action(UPDATE, self.MOVE_TANK_ACTION)
         script.add_action(UPDATE, self.CHECK_OVER_ACTION)
