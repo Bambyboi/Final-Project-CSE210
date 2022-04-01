@@ -51,8 +51,8 @@ class CollideBordersAction(Action):
         borders_right = cast.get_actors(FIELD_RIGHT)
 
 
-        for j in range(len(tanks)):
-            tank = cast.get_nth_actor(TANKS_GROUP, j)
+        for i in range(len(tanks)):
+            tank = cast.get_nth_actor(TANKS_GROUP, i)
             for border_top in borders_top:
                 tank_body = tank.get_body()
                 border_top_body = border_top.get_body()
@@ -81,7 +81,7 @@ class CollideBordersAction(Action):
                 if self._physics_service.has_collided(tank_body, border_right_body):
                     tank.stop_moving(wall=True)
 
-                    
+
 
            # for brick in bricks:
            #         tank_body = tank.get_body()
