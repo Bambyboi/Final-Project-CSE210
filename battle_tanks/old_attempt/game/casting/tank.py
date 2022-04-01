@@ -1,3 +1,4 @@
+# from typing_extensions import Self
 from constants import *
 from game.casting.actor import Actor
 from game.casting.point import Point
@@ -52,9 +53,13 @@ class Tank(Actor):
 
     def turn_left(self):
         """Rotates the tank counterclockwise at a steady pace."""
+        velocity = Point(-CELL_SIZE, 1)
+        self._body.set_velocity(velocity)
 
     def turn_right(self):
         """Rotates the tank clockwise at a steady pace."""
+        velocity = Point(CELL_SIZE, 1)
+        self._body.set_velocity(velocity)
 
     def drive_backward(self): # This used to swing left
         """Moves the tank backwards, relative to its angle."""

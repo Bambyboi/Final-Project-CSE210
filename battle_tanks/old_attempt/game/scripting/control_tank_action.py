@@ -15,6 +15,10 @@ class ControlTankAction(Action):
                     tank.drive_forward()
                 elif self._keyboard_service.is_key_down(P1_DOWN): 
                     tank.drive_backward()  
+                elif self._keyboard_service.is_key_down(P1_LEFT):
+                    tank.turn_left()
+                elif self._keyboard_service.is_key_down(P1_RIGHT):
+                    tank.turn_right()
                 else: 
                     tank.stop_moving()  
             elif i == 1:
@@ -23,5 +27,11 @@ class ControlTankAction(Action):
                     tank.drive_forward()
                 elif self._keyboard_service.is_key_down(P2_DOWN): 
                     tank.drive_backward()  
+                elif self._keyboard_service.is_key_down(P2_LEFT):
+                      tank.turn_left()
+                elif self._keyboard_service.is_key_down(P2_RIGHT):
+                    tank.turn_right()
                 else: 
                     tank.stop_moving()     
+                    
+    

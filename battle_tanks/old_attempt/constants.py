@@ -69,7 +69,7 @@ START_PLAYING = 2
 NEXT_ROUND = 3
 WINNER = 4
 PLAY_AGAIN = 5
-
+CELL_SIZE = 10
 # VISUALS
 
 # -------------------------------------------------------------------------------------------------- 
@@ -115,6 +115,7 @@ BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.png"
 BULLET_WIDTH = 20
 BULLET_HEIGHT = 20
 BULLET_VELOCITY = 6
+
 
 # PLAYER 1 
 P1_TANK = "p1_tank"

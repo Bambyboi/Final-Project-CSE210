@@ -72,3 +72,8 @@ class Point:
         new_x = self._x * -1
         new_y = self._y * -1
         return Point(new_x, new_y)
+    
+    def rotate(self, clockwise=True):
+        sign = 1 if clockwise else -1
+        angle = self.MANUVABILITY * sign
+        self.direction.rotate_ip(angle) 
