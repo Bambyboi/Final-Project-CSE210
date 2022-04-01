@@ -85,9 +85,80 @@ class CollideBordersAction(Action):
 
 
 
-           # for brick in bricks:
-           #         tank_body = tank.get_body()
-           #         brick_body = brick.get_body()
 
-           #         if self._physics_service.has_collided(tank_body, brick_body):
-           #             tank.stop_moving(wall=True)
+
+       
+       
+        #second attempt
+        tanks = cast.get_actors(TANKS_GROUP)
+        borders_top = cast.get_actors(FIELD_TOP)
+        borders_bottom = cast.get_actors(FIELD_BOTTOM)
+        borders_left = cast.get_actors(FIELD_LEFT)
+        borders_right = cast.get_actors(FIELD_RIGHT)
+        #top field
+        for i in range(len(borders_top)):
+            border_top = cast.get_nth_actor(FIELD_TOP, i)
+            for tank in tanks:
+                border_top_body = border_top.get_body()
+                tank_body = tank.get_body()
+
+                if self._physics_service.has_collide(border_top_body, tank_body):
+                    cast.remove_actor(TANKS_GROUP, tank)
+        
+            for border_top in borders_top:
+                tank_body = tank.get_body()
+                border_top_body = border_top.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_top_body):
+                    tank.stop_moving(wall=True)
+        #bottom field
+        for i in range(len(borders_bottom)):
+            border_bottom = cast.get_nth_actor(FIELD_BOTTOM, i)
+            for tank in tanks:
+                border_bottom_body = border_bottom.get_body()
+                tank_body = tank.get_body()
+
+                if self._physics_service.has_collide(border_bottom_body, tank_body):
+                    cast.remove_actor(TANKS_GROUP, tank)
+        
+            for border_bottom in borders_bottom:
+                tank_body = tank.get_body()
+                border_bottom_body = border_bottom.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_bottom_body):
+                    tank.stop_moving(wall=True)
+        #left field
+        for i in range(len(borders_left)):
+            border_left = cast.get_nth_actor(FIELD_LEFT, i)
+            for tank in tanks:
+                border_left_body = border_left.get_body()
+                tank_body = tank.get_body()
+
+                if self._physics_service.has_collide(border_left_body, tank_body):
+                    cast.remove_actor(TANKS_GROUP, tank)
+        
+            for border_left in borders_left:
+                tank_body = tank.get_body()
+                border_left_body = border_left.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_left_body):
+                    tank.stop_moving(wall=True)
+        #right field
+        for i in range(len(borders_right)):
+            border_right = cast.get_nth_actor(FIELD_RIGHT, i)
+            for tank in tanks:
+                border_right_body = border_right.get_body()
+                tank_body = tank.get_body()
+
+                if self._physics_service.has_collide(border_right_body, tank_body):
+                    cast.remove_actor(TANKS_GROUP, tank)
+        
+            for border_right in borders_right:
+                tank_body = tank.get_body()
+                border_right_body = border_right.get_body()
+
+                if self._physics_service.has_collided(tank_body, border_right_body):
+                    tank.stop_moving(wall=True)
+
+        
+
