@@ -8,7 +8,7 @@ from game.casting.point import Point
 class Bullet(Actor):
     """A solid, spherical object that is shot around in the game to break walls and defeat other tanks."""
     
-    def __init__(self, body, image, debug = False):
+    def __init__(self, body, image, debug = False, player = 0):
         """Constructs a new Bullet.
 
         Args:
@@ -16,6 +16,8 @@ class Bullet(Actor):
             image: A new instance of Image.
             debug: If it is being debugged. 
         """
+        #player immune to own bullets
+        self._player = player
         super().__init__(debug)
         self._body = body
         self._image = image
@@ -62,11 +64,21 @@ class Bullet(Actor):
         velocity = Point(vx, vy)
         self._body.set_velocity(velocity)
 
+    def get_player(self):
+        return self._player
 
-    def fire(self, angle):
-        self.velocity.dx = math.cos(math.radians(angle)) * BULLET_SPEED
-        self.velocity.dy = math.sin(math.radians(angle)) * BULLET_SPEED
-        
-       # self.center.x = RIFLE_WIDTH * math.cos(math.radians(angle))
-       # self.center.y = RIFLE_WIDTH * math.sin(math.radians(angle))
+
+    def fire(self, angle, cast, player, velocity_new=""):
+            # self.velocity_dx = math.cos(math.radians(angle)) * BULLET_SPEED
+            # self.velocity_dy = math.sin(math.radians(angle)) * BULLET_SPEED
+            if velocity_new == "":
+                self.velocity_dx = math.cos(math.radians(angle)) * BULLET_SPEED
+                self.velocity_dy = math.sin(math.radians(angle)) * BULLET_SPEED
+                velocity = Point(self.velocity_dx, self.velocity_dy)
+                self._body.set_velocity(velocity)
+            else:
+                self._body.set_velocity(velocity_new)
+            
+        # self.center.x = RIFLE_WIDTH * math.cos(math.radians(angle))
+        # self.center.y = RIFLE_WIDTH * math.sin(math.radians(angle))
         

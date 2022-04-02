@@ -113,7 +113,7 @@ SCORE_FORMAT = "SCORE: {}"
 BULLET_GROUP = "bullet"
 BULLET_IMAGE = "battle_tanks/old_attempt/game/assets/images/bullet1.png"
 BULLET_WIDTH = 20
-BULLET_HEIGHT = 20
+BULLET_HEIGHT = 10
 BULLET_VELOCITY = 6
 
 
@@ -128,13 +128,14 @@ P2_TANK_IMAGE = "battle_tanks/old_attempt/game/assets/images/tank_red.png"
 # BOTH TANKS
 TANKS_GROUP = "tanks"
 TANKS_IMAGES = {
-    "player_1": "battle_tanks/old_attempt/game/assets/images/tank_red_copy.png",
-    "player_2": "battle_tanks/old_attempt/game/assets/images/tank_blue_copy.png",
+    "player_1": "battle_tanks/old_attempt/game/assets/images/tank_red_copy_right.png",
+    "player_2": "battle_tanks/old_attempt/game/assets/images/tank_blue_copy_right.png",
     "player_3": "battle_tanks/old_attempt/game/assets/images/tank_yellow.png",
     "player_4": "battle_tanks/old_attempt/game/assets/images/tank_green.png"
 }
 TANK_WIDTH = 50 #100
 TANK_HEIGHT = 50 #100
+TANK_ROTATION_SPEED = 2
 TANK_RATE = 6
 TANK_VELOCITY = 3
 

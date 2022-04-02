@@ -20,6 +20,6 @@ class DrawTankAction(Action):
                     
                 # animation = tank.get_animation()
                 # image = animation.next_image()
-                image = Image(TANKS_IMAGES[f"player_{i+1}"])
+                image = tank.get_image()
                 position = body.get_position()
                 self._video_service.draw_image(image, position)

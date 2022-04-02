@@ -18,20 +18,21 @@ class CollideTankAction(Action):
                     
                     bullet_body = bullet.get_body()
                     tank_body = tank.get_body()
-
-                    if self._physics_service.has_collided(bullet_body, tank_body):
-                        bullet.bounce_y()
-                        sound = Sound(HIT_SOUND)
-                        self._audio_service.play_sound(sound)
-                        cast.clear_actors(TANKS_GROUP)
-                        cast.clear_actors(BULLET_GROUP)
-                        cast.clear_actors(BRICKS_GROUP)
-                        update_score = cast.get_nth_actor(STATS_GROUP, i)
-                        update_score.add_points(1)
-                        if update_score.get_score() > 4:
-                            callback.on_next(WINNER)
-                        else:
-                            callback.on_next(NEXT_ROUND)
+                    bullet_owner = bullet.get_player()
+                    if not bullet_owner == i + 1:
+                        if self._physics_service.has_collided(bullet_body, tank_body):
+                            bullet.bounce_y()
+                            sound = Sound(HIT_SOUND)
+                            self._audio_service.play_sound(sound)
+                            cast.clear_actors(TANKS_GROUP)
+                            cast.clear_actors(BULLET_GROUP)
+                            cast.clear_actors(BRICKS_GROUP)
+                            update_score = cast.get_nth_actor(STATS_GROUP, i)
+                            update_score.add_points(1)
+                            if update_score.get_score() > 4:
+                                callback.on_next(WINNER)
+                            else:
+                                callback.on_next(NEXT_ROUND)
 
     # def dead_tank_check(self):
     #     if self._tank_is_hit:

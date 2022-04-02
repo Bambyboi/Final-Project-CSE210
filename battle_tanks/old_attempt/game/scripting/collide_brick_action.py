@@ -14,9 +14,8 @@ class CollideBrickAction(Action):
         bricks = cast.get_actors(BRICKS_GROUP)
         tanks = cast.get_actors(TANKS_GROUP)
         # stats = cast.get_first_actor(STATS_GROUP)
-
-        for i in range(len(bullets)):
-            bullet = cast.get_nth_actor(BULLET_GROUP, i)
+        removed_bul = False
+        for bullet in bullets:
             for brick in bricks:
                 bullet_body = bullet.get_body()
                 brick_body = brick.get_body()
@@ -27,6 +26,10 @@ class CollideBrickAction(Action):
                     # self._audio_service.play_sound(sound)
                     # stats.add_points(points)
                     cast.remove_actor(BRICKS_GROUP, brick)
+                    removed_bul = True
+            if removed_bul == True:
+                cast.remove_actor(BULLET_GROUP, bullet)
+            removed_bul = False
             
                     
         for tank in tanks:

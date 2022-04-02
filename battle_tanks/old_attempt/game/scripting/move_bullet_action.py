@@ -17,10 +17,10 @@ class MoveBulletAction(Action):
             body.set_position(position)
 
             if body.get_position().get_y() > SCREEN_HEIGHT:
-                cast.remove_actor(bullet)
+                cast.remove_actor(BULLET_GROUP, bullet)
             elif body.get_position().get_y() < 0 - BULLET_HEIGHT:
-                cast.remove_actor(bullet)
+                cast.remove_actor(BULLET_GROUP, bullet)
             elif body.get_position().get_x() > SCREEN_WIDTH:
-                cast.remove_actor(bullet)
+                cast.remove_actor(BULLET_GROUP, bullet)
             elif body.get_position().get_x() < 0 - BULLET_WIDTH:
-                cast.remove_actor(bullet)
+                cast.remove_actor(BULLET_GROUP, bullet)
