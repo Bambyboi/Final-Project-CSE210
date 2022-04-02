@@ -176,13 +176,14 @@ class FrameSetUp:
     #     self._add_output_script(script)
 
     def _prepare_game_over(self, cast, script):
-        
-        self._add_bullets(cast)
-        self._add_tank(cast)
+        self._remove_background
+        cast.clear_actors(DIALOG_GROUP)
+        cast.clear_actors(TANKS_GROUP)
+        cast.clear_actors(BULLET_GROUP)
         self._add_dialog(cast, WINNER)
 
         script.clear_actions(INPUT)
-        script.add_action(INPUT, TimedChangeSceneAction(START_MENU, 5))
+        script.add_action(INPUT, ChangeSceneAction(self.KEYBOARD_SERVICE, CONTROLS))
         script.clear_actions(UPDATE)
         self._add_output_script(script)
 
@@ -201,6 +202,9 @@ class FrameSetUp:
         image = Image(filename)
         background = Background(body, image, True)
         cast.add_actor(BACKGROUND_GROUP, background)
+    
+    def _remove_background(self, cast):
+        cast.clear_actors(BACKGROUND_GROUP)
 
     def _activate_bullet(self, cast):
         bullet = cast.get_first_actor(BULLET_GROUP)
@@ -327,11 +331,11 @@ class FrameSetUp:
 
     def _add_score(self, cast, player):
         if player == 1:
-            x = 100
-            y = 0 
-        elif player == 2:
             x = SCREEN_WIDTH - 100
             y = 0
+        elif player == 2:
+            x = 100
+            y = 0 
         text = Text(SCORE_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
         position = Point(x, y)
         label = Label(text, position)

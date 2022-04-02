@@ -13,21 +13,25 @@ class CollideTankAction(Action):
         for i in range(NUMBER_OF_PLAYERS):
             bullets = cast.get_actors(BULLET_GROUP)
             for bullet in bullets:
-                tank = cast.get_nth_actor(TANKS_GROUP, i)
-                
-                bullet_body = bullet.get_body()
-                tank_body = tank.get_body()
+                if len(cast.get_actors(TANKS_GROUP)) >= NUMBER_OF_PLAYERS:
+                    tank = cast.get_nth_actor(TANKS_GROUP, i)
+                    
+                    bullet_body = bullet.get_body()
+                    tank_body = tank.get_body()
 
-                if self._physics_service.has_collided(bullet_body, tank_body):
-                    bullet.bounce_y()
-                    sound = Sound(HIT_SOUND)
-                    self._audio_service.play_sound(sound)
-                    cast.clear_actors(TANKS_GROUP)
-                    cast.clear_actors(BULLET_GROUP)
-                    cast.clear_actors(BRICKS_GROUP)
-                    update_score = cast.get_nth_actor(STATS_GROUP, i)
-                    update_score.add_points(1)
-                    callback.on_next(NEXT_ROUND)
+                    if self._physics_service.has_collided(bullet_body, tank_body):
+                        bullet.bounce_y()
+                        sound = Sound(HIT_SOUND)
+                        self._audio_service.play_sound(sound)
+                        cast.clear_actors(TANKS_GROUP)
+                        cast.clear_actors(BULLET_GROUP)
+                        cast.clear_actors(BRICKS_GROUP)
+                        update_score = cast.get_nth_actor(STATS_GROUP, i)
+                        update_score.add_points(1)
+                        if update_score.get_score() > 4:
+                            callback.on_next(WINNER)
+                        else:
+                            callback.on_next(NEXT_ROUND)
 
     # def dead_tank_check(self):
     #     if self._tank_is_hit:
