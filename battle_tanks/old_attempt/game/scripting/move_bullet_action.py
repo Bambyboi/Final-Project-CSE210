@@ -8,9 +8,19 @@ class MoveBulletAction(Action):
         pass
         
     def execute(self, cast, script, callback):
-        bullet = cast.get_first_actor(BULLET_GROUP)
-        body = bullet.get_body()
-        position = body.get_position()
-        velocity = body.get_velocity()
-        position = position.add(velocity)
-        body.set_position(position)
+        bullets = cast.get_actors(BULLET_GROUP)
+        for bullet in bullets:
+            body = bullet.get_body()
+            position = body.get_position()
+            velocity = body.get_velocity()
+            position = position.add(velocity)
+            body.set_position(position)
+
+            if body.get_position().get_y() > SCREEN_HEIGHT:
+                cast.remove_actor(bullet)
+            elif body.get_position().get_y() < 0 - BULLET_HEIGHT:
+                cast.remove_actor(bullet)
+            elif body.get_position().get_x() > SCREEN_WIDTH:
+                cast.remove_actor(bullet)
+            elif body.get_position().get_x() < 0 - BULLET_WIDTH:
+                cast.remove_actor(bullet)

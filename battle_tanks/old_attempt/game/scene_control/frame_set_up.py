@@ -91,7 +91,8 @@ class FrameSetUp:
     
     def _prepare_start_menu(self, cast, script):
         self._add_background(cast, START_MENU_IMAGE)
-        self._add_stats(cast)
+        self._add_stats(cast, player=1)
+        self._add_stats(cast, player=2)
         self._add_score(cast, player=1)
         self._add_score(cast, player=2)
         self._add_tank(cast, player=1)
@@ -141,14 +142,16 @@ class FrameSetUp:
         
     def _prepare_next_round(self, cast, script):
         cast.clear_actors(DIALOG_GROUP)
+        self._remove_tanks
+        self._remove_bullet
         self._add_bullets(cast)
         self._add_bricks(cast)
         self._add_tank(cast)
-        # self._add_dialog(cast, LOADING_NEW_MAP)
+        self._add_tank(cast, 2)
+        self._add_dialog(cast, LOADING_NEW_MAP)
 
         script.clear_actions(INPUT)
         script.add_action(INPUT, self.CONTROL_TANK_ACTION)
-        # script.add_action(INPUT, TimedChangeSceneAction(NEXT_ROUND, 2))
         self._add_update_script(script)
         self._add_output_script(script)
         script.add_action(OUTPUT, PlaySoundAction(self.AUDIO_SERVICE, WELCOME_SOUND))
@@ -334,7 +337,7 @@ class FrameSetUp:
         label = Label(text, position)
         cast.add_actor(SCORE_GROUP, label)
 
-    def _add_stats(self, cast):
+    def _add_stats(self, cast, player=1):
         stats = Stats()
         cast.add_actor(STATS_GROUP, stats)
     
