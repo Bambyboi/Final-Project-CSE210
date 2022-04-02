@@ -367,19 +367,21 @@ class FrameSetUp:
 
     def _add_tank(self, cast, player=1):
         # cast.clear_actors(TANKS_GROUP) # moved to _remove_tanks
+        rotation = 0
         if player == 1:
             x = TANK_WIDTH
             y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
         elif player == 2:
             x = SCREEN_WIDTH - TANK_WIDTH * 2
             y = SCREEN_HEIGHT / 2 - TANK_HEIGHT / 2
+            rotation = 180
 
         position = Point(x, y)
         size = Point(TANK_WIDTH, TANK_HEIGHT)
         velocity = Point(0, 0)
         body = Body(position, size, velocity)
         animation = Animation(TANKS_IMAGES, TANK_RATE)
-        image = Image(TANKS_IMAGES[f"player_{player}"])
+        image = Image(TANKS_IMAGES[f"player_{player}"], rotation = rotation)
         tank = Tank(body, animation, image)
         cast.add_actor(TANKS_GROUP, tank)
 

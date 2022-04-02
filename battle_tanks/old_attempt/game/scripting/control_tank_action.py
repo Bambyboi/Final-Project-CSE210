@@ -44,7 +44,7 @@ class ControlTankAction(Action):
                     print(self.cool_down1)
                     if self.cool_down1 >= 60:
                         if self._keyboard_service.is_key_down(P1_SHOOT):
-                            self._facing1 = tank.get_velocity()
+                            self._facing1 = tank.get_rotation()
                             _body = tank.get_body()
                             _position = _body.get_position()
                             P1_x = _position.get_x()
@@ -56,7 +56,7 @@ class ControlTankAction(Action):
                             image = Image(BULLET_IMAGE)
                             bullet = Bullet(body, image, player = 1)
                             cast.add_actor(BULLET_GROUP, bullet)
-                            bullet.fire(self._facing1, cast, player = 1, velocity_new = self._facing1)
+                            bullet.fire(self._facing1, cast, player = 1)
                             self.cool_down1 -= 60
 
                 elif i == 1:
@@ -82,7 +82,7 @@ class ControlTankAction(Action):
                     self.cool_down2 += 1
                     if self.cool_down2 >= 60:     
                         if self._keyboard_service.is_key_down(P2_SHOOT):
-                            self._facing2 = tank.get_velocity()
+                            self._facing2 = tank.get_rotation()
                             _body = tank.get_body()
                             _position = _body.get_position()
                             P2_x = _position.get_x()
@@ -94,7 +94,7 @@ class ControlTankAction(Action):
                             image = Image(BULLET_IMAGE)
                             bullet = Bullet(body, image, player = 2)
                             cast.add_actor(BULLET_GROUP, bullet)
-                            bullet.fire(self._facing2, cast, player = 2, velocity_new = self._facing2)
+                            bullet.fire(self._facing2, cast, player = 2)
                             self.cool_down2 -= 60
                     
     
