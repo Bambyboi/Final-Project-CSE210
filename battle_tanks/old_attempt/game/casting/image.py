@@ -1,11 +1,14 @@
+from game.casting.point import Point
+
 class Image:
     """An image."""
     
-    def __init__(self, filename, scale = 1, rotation = 0):
+    def __init__(self, filename, scale = 1, rotation = 0, center = Point(0, 0)):
         """Constructs a new Image."""
         self._filename = filename
         self._scale = scale
         self._rotation = rotation
+        self._center = center
         
     def get_filename(self):
         """Gets the name of the image file.
@@ -46,3 +49,10 @@ class Image:
             scale: A float representing how much the image should be scaled.
         """
         self._scale = scale
+
+    def get_center(self):
+        return self._center
+
+    def set_center(self, center):
+        """That center needs to come in as a Point object."""
+        self._center = center

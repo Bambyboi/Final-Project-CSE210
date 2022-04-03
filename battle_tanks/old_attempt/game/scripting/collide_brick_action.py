@@ -30,6 +30,23 @@ class CollideBrickAction(Action):
             if removed_bul == True:
                 cast.remove_actor(BULLET_GROUP, bullet)
             removed_bul = False
+        bullets = cast.get_actors(BULLET_GROUP)
+        bricks = cast.get_actors(BRICKS_GROUP)
+        for brick in bricks:
+            for bullet in bullets:
+                bullet_body = bullet.get_body()
+                brick_body = brick.get_body()
+
+                if self._physics_service.has_collided(bullet_body, brick_body):
+                    # bullet.bounce_y()
+                    # sound = Sound(BOUNCE_SOUND)
+                    # self._audio_service.play_sound(sound)
+                    # stats.add_points(points)
+                    cast.remove_actor(BULLET_GROUP, bullet)
+            #         removed_bul = True
+            # if removed_bul == True:
+            #     cast.remove_actor(BRICKS_GROUP, bricks)
+            # removed_bul = False
             
                     
         for tank in tanks:

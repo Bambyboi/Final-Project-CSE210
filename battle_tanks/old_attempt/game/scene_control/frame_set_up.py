@@ -227,9 +227,9 @@ class FrameSetUp:
 
     def _add_bricks(self, cast):
         cast.clear_actors(BRICKS_GROUP)
-        how_many_bricks_per_group = 50
-        design_chooser = random.randint(0,5)
-        if design_chooser > 2:
+        how_many_bricks_per_group = 25
+        design_chooser = 5 #random.randint(0,5)
+        if design_chooser > 10:#2:
             for i in range(how_many_bricks_per_group):
                 x = FIELD_LEFT + i * SCREEN_WIDTH / how_many_bricks_per_group
                 y = i * SCREEN_HEIGHT / how_many_bricks_per_group
@@ -285,6 +285,22 @@ class FrameSetUp:
 
                 brick = Brick(body)
                 cast.add_actor(BRICKS_GROUP, brick)
+        # if design_chooser > 4:
+        for i in range(round((SCREEN_WIDTH-200) / BRICK_WIDTH / 2)):
+            for j in range(round(SCREEN_HEIGHT / BRICK_HEIGHT / 4)):
+                x = 100 + i * ((SCREEN_WIDTH-200) / BRICK_WIDTH / 2) + BRICK_WIDTH * i
+                y = j * (SCREEN_HEIGHT / BRICK_HEIGHT / 4) + BRICK_HEIGHT * j
+                
+                position = Point(x, y)
+                size = Point(BRICK_WIDTH, BRICK_HEIGHT)
+                velocity = Point(0, 0)
+                image_num = random.randint(1, 3)
+                image = BRICK_IMAGES[image_num]
+                body = Body(position, size, velocity, image)
+
+                brick = Brick(body)
+                cast.add_actor(BRICKS_GROUP, brick)
+
             
 
 
