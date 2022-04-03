@@ -68,10 +68,7 @@ Priorities:
 
 
 Notes: To-do list
-
-
-Gunnar: Currently looking into how to get the racket.py to control the tanks. 
-    - will likely need to apply an angle to the rectangle depending on how long the arrow is held.
-    - will need a constant telling how much to rotate per frame (ROTATION_SPEED)
-    - will need to use the balls formula for traveling in any angled direction to help with the forward/backward momentum after/with rotation
-    - also, no idea why the tank image does not show up when called instead of the racket's image...
+The Branch of the main file uses Alvaro's handy formular to get the tanks turning and rotating and shooting closer to how we originally envisioned.
+- but how do we rotate on the center point, instead of top left origin?
+- why do the bullets cause a crash when they run into more than one brick at a time. The batter game had several bricks dissapear in a single go, and I never saw the could not remove actor "x" error like we are getting here. 
+- How to display the winner screen after 5 points is reached?
