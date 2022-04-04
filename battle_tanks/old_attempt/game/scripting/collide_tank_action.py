@@ -32,6 +32,29 @@ class CollideTankAction(Action):
                             callback.on_next(WINNER)
                         else:
                             callback.on_next(NEXT_ROUND)
+        
+            #first attempt
+            #if len(cast.get_actors(TANKS_GROUP)) >= NUMBER_OF_PLAYERS:
+            #    for i in range(NUMBER_OF_PLAYERS):
+            #        if i == 0:
+            #            tank_1 = cast.get_nth_actor(TANKS_GROUP, i)
+
+            #            if self._physics_service.has_collided(tank_1, tank_2):
+            #                tank.stop_moving(wall=True)
+
+            #        elif i == 1:
+            #            tank_2 = cast.get_nth_actore(TANKS_GROUP, i)
+
+            #            if self._physics_service.has_collided(tank_1, tank_2):
+            #                tank.stop_moving(wall=True)
+
+            
+            #for i in range(len(tank)):
+            #    tanks = cast.get_actors(TANKS_GROUP)
+
+            #    if self._physics_service.has_collided(bullet_body, tank_body):
+
+
 
     # def dead_tank_check(self):
     #     if self._tank_is_hit:
